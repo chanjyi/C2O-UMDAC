@@ -1,0 +1,20 @@
+check,result,decision,reason
+Total rows,10000000,Keep all,Baseline count
+Normal rows (blank ANOMALY_TYPE),9992994,"Blank = normal payment, recoded as 'NONE'","Blank is a label, not missing data"
+Exact duplicate rows (64-bit row hash),1,Keep,DUPLICATE_PAYMENT is a labelled behaviour; see section 4.3
+USD_AMOUNT <= 0,0,Flag only,Would break log-amount analysis
+USD_AMOUNT min,0.01,Keep,Range check
+USD_AMOUNT max,15664132213.09,"Keep, check if FAT_FINGER",Extremes may be labelled errors
+Max amount row label,FAT_FINGER_MISTAKE,-,Is the largest amount a labelled anomaly?
+TOTAL_DURATION < 0,0,Flag only,Impossible value
+Currency code not 3 letters,0,Flag only,Format check
+BIC8 not 8 characters,0,Flag only,Country is read from BIC chars 5-6
+Party type not B/C,0,Flag only,Label check
+QFLAG=N agrees with '...' in path (%),100.0,-,Appendix definition check
+Conversions > participants-1,0,Flag only,Logical consistency
+Direct with PARTICIPANT_COUNT<>2,0,Flag only,Definition check
+ORDERING_BIC8 <> first BIC in path (%),4.98399,Keep; pass to routing teammate,Possible routing rule
+BENEFICIARY_BIC8 <> last BIC in path (%),4.99265,Keep; pass to routing teammate,Possible routing rule
+Anomaly labels NOT in appendix,CUSTOMER_RECALL,Keep; investigate in 4.7,Undocumented label
+Rows with undocumented labels,317,Keep; investigate in 4.7,Undocumented label
+Details containing carriage return (\r),0,Strip \r in line-length checks,Would inflate line length by 1
