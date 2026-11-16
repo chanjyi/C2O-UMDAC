@@ -1,0 +1,21 @@
+# data is too large / competition-confidential - never commit it
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.parquet
+*.duckdb
+*.duckdb.wal
+duck_tmp/
+tmp/
+
+# notebooks / python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db

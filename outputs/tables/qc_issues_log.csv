@@ -1,0 +1,22 @@
+check,result,status,decision,reason
+Total rows,10000000,pass,Keep all,Baseline count
+Missing values in any column except ANOMALY_TYPE,0,pass,None to fix,Every field is filled
+Normal rows (blank ANOMALY_TYPE),9992994,pass,Recoded blank to 'NONE',"Blank is a label, not missing data"
+Exact duplicate rows (hash of all raw columns),1,REVIEW,Keep,"DUPLICATE_PAYMENT is a labelled behaviour (see notebook 03, 4.3)"
+Payments sharing time + accounts + amount + currency,2,REVIEW,"Keep, review",Same 5-field signature; not full-row copies
+USD_AMOUNT <= 0,0,pass,Flag only,Would break log-amount analysis
+USD_AMOUNT range,"0.01 to 15,664,132,213",pass,Keep,Range check
+Label of the largest amount,FAT_FINGER_MISTAKE,pass,-,Extremes should be labelled errors
+TOTAL_DURATION < 0,0,pass,Flag only,Impossible value
+Timestamp range (UTC),2023-04-30 11:22 to 2023-07-31 09:56,pass,-,Coverage
+Currency code not 3 capital letters,0,pass,Flag only,Format check
+BIC8 not 8 characters,0,pass,Flag only,Country is read from BIC chars 5-6
+Party type not B/C,0,pass,Flag only,Label check
+CONTINUITY_QFLAG = N agrees with '...' in path (%),100.0,pass,-,Appendix definition check
+Conversions > participants - 1,0,pass,Flag only,Logical consistency
+Direct with PARTICIPANT_COUNT <> 2,0,pass,Flag only,Definition check
+ORDERING_BIC8 <> first BIC in path (%),4.984,pass,Keep; routing teammate,Possible routing rule
+BENEFICIARY_BIC8 <> last BIC in path (%),4.993,pass,Keep; routing teammate,Possible routing rule
+Anomaly labels not in the appendix,CUSTOMER_RECALL,REVIEW,"Keep; investigate (notebook 03, 4.7)",Undocumented label
+Rows with undocumented labels,317,REVIEW,Keep; ask mentors,Undocumented label
+Details containing carriage return (\r),0,pass,Strip \r before line-length checks,Would inflate line length by 1

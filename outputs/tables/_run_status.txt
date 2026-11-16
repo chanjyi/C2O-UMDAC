@@ -1,0 +1,5 @@
+done 04_integration_validation 
+done 01_currency_payment_analysis 
+done 03_anomalies_accounts_details 
+done 02_member2_analysis 
+ALL DONE 

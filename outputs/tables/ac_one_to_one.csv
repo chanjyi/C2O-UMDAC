@@ -1,0 +1,3 @@
+role,accounts,multi_bic,multi_party_type,multi_details_account,median_payments,mean_payments,p99_payments,max_payments
+ordering,391132,0.0,0.0,0.0,3.0,25.566816317764847,404.0,75803
+beneficiary,2590877,0.02377804890004427,0.0,0.058765429620935304,1.0,3.8596969288777507,40.0,53350
