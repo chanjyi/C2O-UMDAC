@@ -1,0 +1,38 @@
+table ac_iban_classes
+	lineageTag: a9f376ee-2cb8-24da-7ecf-fccd79fc0f60
+
+	column iban_class
+		dataType: string
+		lineageTag: 7a926660-8009-6b66-cfc6-3dd03a1dc0c3
+		summarizeBy: none
+		sourceColumn: iban_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column countries
+		dataType: int64
+		lineageTag: 1751439e-6418-2fa0-8d51-113e7ee0b552
+		summarizeBy: sum
+		sourceColumn: countries
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ac_iban_classes = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ac_iban_by_country.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"cc", "iban_share"}, MissingField.UseNull),
+				    Num = Table.TransformColumnTypes(Selected, {{"iban_share", type number}}, "en-US"),
+				    Classed = Table.AddColumn(Num, "iban_class", each if [iban_share] >= 0.99 then "All accounts IBAN (>99%)" else if [iban_share] <= 0.01 then "No IBAN (<1%)" else "Mixed", type text),
+				    Counted = Table.Group(Classed, {"iban_class"}, {{"countries", each Table.RowCount(_), Int64.Type}}),
+				    Base = #table(type table [iban_class = text, countries = Int64.Type], {{"All accounts IBAN (>99%)", 0}, {"Mixed", 0}, {"No IBAN (<1%)", 0}}),
+				    AllClasses = Table.Group(Table.Combine({Counted, Base}), {"iban_class"}, {{"countries", each List.Sum([countries]), Int64.Type}}),
+				    Typed = Table.TransformColumnTypes(AllClasses, {{"iban_class", type text}, {"countries", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"iban_class", "countries"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

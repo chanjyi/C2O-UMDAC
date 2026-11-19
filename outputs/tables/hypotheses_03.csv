@@ -1,16 +1,16 @@
-id,group,hypothesis,test,status,evidence
-A1,Anomalies,FAT_FINGER amount = normal amount x 10^k (k = +-2 or +-3),4.4 shift in log10 vs country x pair median,TODO,
-A2,Anomalies,DUPLICATE: B = same sender seconds apart; C = different sender (partner) hours/days apart,4.3 self-join to original,TODO,
-A3,Anomalies,"ROMANCE: C2C, same pair repeats, amounts rise over time","4.5 payments per pair, amount-time correlation",TODO,
-A4,Anomalies,"CEO_SCAM: B sender, above-normal amount, first-time payee",4.2 profile vs control,TODO,
-A5,Anomalies,"ACCOUNT_REPLACEMENT: same payee name as before, different account",4.6 name match to earlier payment,TODO,
-A6,Anomalies,Undocumented label links back to an earlier payment,4.7 link to nearest same-accounts payment,TODO,
-A7,Anomalies,Null: anomaly rate is flat across pair / type / hour / weekday,4.1 lift + chi-square,TODO,
-AC1,Accounts,IBAN format <=> bank country uses IBAN; IBAN country = BIC country; IBAN digits 5-8 = BIC chars 1-4,5.1,TODO,
-AC2,Accounts,Non-IBAN accounts embed the bank country's currency code,5.2,TODO,
-AC3,Accounts,Each account belongs to exactly one BIC and one party type,5.3,TODO,
-D1,Details,Details lines wrap at 35 characters,6.1 max line length,TODO,
-D2,Details,Three formats: free text / structured 1/2/3/ / BIC only,6.1 format shares,TODO,
-D3,Details,"B parties get business tokens, C parties get person-name tokens",6.2,TODO,
-D4,Details,Sender address country = sender bank country; receiver's often differs,6.3,TODO,
-D5,Details,Trailing finance/stop-word line is random filler (same rate for anomalies),4.2 profile + 6.1,TODO,
+id,group,hypothesis,test,status,evidence,final_verdict
+A1,Anomalies,FAT_FINGER amount = normal amount x 10^k (k = +-2 or +-3),4.4 shift in log10 vs country x pair median,Partly: fat-finger payments are far more often about 32x or more away from the typical amount (rounded order of magnitude >= 2; test grade Confirmed); an exact x10^k multiplier is not established,a_fatfinger_k_share.csv; a_significance_tests.csv; a_detector_performance.csv; a_out_of_sample_and_by_month.csv,Supported
+A2,Anomalies,DUPLICATE: B = same sender seconds apart; C = different sender (partner) hours/days apart,4.3 self-join to original,"Re-send pattern (test grade Strong); the B (seconds) vs C (other sender, hours/days) split is NOT supported: both re-sent by the same sender minutes later (rule A2b, test grade Confirmed)",a_duplicate_bursts.csv; a_duplicates_vs_control.csv; a_significance_tests.csv; a_detector_performance.csv; a_out_of_sample_and_by_month.csv,Supported
+A3,Anomalies,"ROMANCE: C2C, same pair repeats, amounts rise over time","4.5 payments per pair, amount-time correlation",test grade Confirmed,a_romance_vs_control.csv; a_significance_tests.csv; a_detector_performance.csv; a_out_of_sample_and_by_month.csv,Supported
+A4,Anomalies,"CEO_SCAM: B sender, above-normal amount, first-time payee",4.2 profile vs control,test grade Strong,a_profile_vs_control.csv; a_significance_tests.csv; a_detector_performance.csv; a_out_of_sample_and_by_month.csv,Supported
+A5,Anomalies,"ACCOUNT_REPLACEMENT: same payee name as before, different account",4.6 name match to earlier payment,Inconclusive (not recovered with tested matching),a_account_replacement_vs_control.csv; a_account_replacement_name_diagnostic.csv,Inconclusive
+A6,Anomalies,Undocumented label links back to an earlier payment,4.7 link to nearest same-accounts payment,Not supported: 314 of 317 undocumented-label rows have no linked payment (rule A6 reports the observation),a_undocumented_label_links.csv; qc_issues_log.csv,Confirmed
+A7,Anomalies,Null: anomaly rate is flat across pair / type / hour / weekday,4.1 lift + chi-square,"Null rejected for conversions, cross_border, hour_utc, pair, transaction_type, weekday_utc; not rejected for qflag",a_chi2_by_segment.csv; a_lift_by_segment.csv,Approximate
+AC1,Accounts,IBAN format <=> bank country uses IBAN; IBAN country = BIC country; IBAN digits 5-8 = BIC chars 1-4,5.1,test grade Confirmed,ac_iban_by_country.csv,Confirmed
+AC2,Accounts,Non-IBAN accounts embed the bank country's currency code,5.2,test grade Confirmed,ac_currency_in_account.csv,Confirmed
+AC3,Accounts,Each account belongs to exactly one BIC and one party type,5.3,test grade Strong,ac_one_to_one.csv,Strong
+D1,Details,Details lines wrap at 35 characters,6.1 max line length,test grade Confirmed,d_details_profile.csv,Confirmed
+D2,Details,Three formats: free text / structured 1/2/3/ / BIC only,6.1 format shares,"Partly: the numbered and BIC-line formats never occur together (test grade Confirmed); the free text is a residual class, not a tested third template",d_details_formats.csv; d_details_profile.csv,Confirmed
+D3,Details,"B parties get business tokens, C parties get person-name tokens",6.2,test grade Partial,d_name_class_by_type.csv,Partial
+D4,Details,Sender address country = sender bank country; receiver's often differs,6.3,test grade Confirmed,d_details_profile.csv,Confirmed
+D5,Details,Trailing finance/stop-word line is random filler (same rate for anomalies),4.2 profile + 6.1,test grade Partial,d_noise_line_vs_normal.csv; a_profile_vs_control.csv,Approximate

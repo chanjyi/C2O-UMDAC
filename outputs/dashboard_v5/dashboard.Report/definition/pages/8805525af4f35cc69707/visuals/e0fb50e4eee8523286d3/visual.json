@@ -1,0 +1,75 @@
+{
+ "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+ "name": "e0fb50e4eee8523286d3",
+ "position": {
+  "x": 60,
+  "y": 16,
+  "width": 1800,
+  "height": 100,
+  "z": 0,
+  "tabOrder": 0
+ },
+ "visual": {
+  "visualType": "textbox",
+  "objects": {
+   "general": [
+    {
+     "properties": {
+      "paragraphs": [
+       {
+        "textRuns": [
+         {
+          "value": "Appendix A: rule table (25 of 45 rules and rejected hypotheses)",
+          "textStyle": {
+           "fontWeight": "bold",
+           "fontSize": "18pt"
+          }
+         }
+        ]
+       },
+       {
+        "textRuns": [
+         {
+          "value": "Full statement of every rule with its final verdict and causal status. Statistics, holdout checks and practical meaning: FINDINGS.md / evidence_matrix.csv.",
+          "textStyle": {
+           "fontSize": "11pt"
+          }
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "visualContainerObjects": {
+   "border": [
+    {
+     "properties": {
+      "show": {
+       "expr": {
+        "Literal": {
+         "Value": "false"
+        }
+       }
+      }
+     }
+    }
+   ],
+   "background": [
+    {
+     "properties": {
+      "show": {
+       "expr": {
+        "Literal": {
+         "Value": "false"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  "drillFilterOtherVisuals": true
+ }
+}

@@ -1,0 +1,35 @@
+table amt_factor_screening_r2
+	lineageTag: 4d360e6c-c55a-212a-34e1-511fd40bf6e1
+
+	column factor
+		dataType: string
+		lineageTag: 5b2ac85d-59cb-cd75-893b-6822eaf9fce8
+		summarizeBy: none
+		sourceColumn: factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column r2
+		dataType: double
+		formatString: 0.000
+		lineageTag: 7c01735c-f50d-966b-2577-0a74339d6fe9
+		summarizeBy: sum
+		sourceColumn: r2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition amt_factor_screening_r2 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "amt_factor_screening_r2.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Renamed = Table.RenameColumns(Promoted, {{Table.ColumnNames(Promoted){0}, "factor"}}),
+				    Rounded = Table.TransformColumns(Renamed, {{"r2", each Number.Round(Number.FromText(_, "en-US"), 3), type number}}),
+				    Typed = Table.TransformColumnTypes(Rounded, {{"factor", type text}, {"r2", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"factor", "r2"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

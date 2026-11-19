@@ -1,0 +1,42 @@
+table d_name_class_by_type
+	lineageTag: b5dcef8e-f0c9-7b2b-2dd3-d63d3717e527
+
+	column party
+		dataType: string
+		lineageTag: 1015aa0c-a632-0b2b-054e-f82440bff937
+		summarizeBy: none
+		sourceColumn: party
+
+		annotation SummarizationSetBy = Automatic
+
+	column name_class
+		dataType: string
+		lineageTag: 14bb5edb-805c-8df2-05d7-689d750b9f65
+		summarizeBy: none
+		sourceColumn: name_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: e2b1c780-eb8b-1565-64c6-82aae4d6c583
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_name_class_by_type = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "d_name_class_by_type.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"side", "typ", "name_class", "n"}, MissingField.UseNull),
+				    Party = Table.AddColumn(Selected, "party", each (if [side] = "ordering" then "Sender " else "Receiver ") & (if [typ] = "B" then "business" else "consumer"), type text),
+				    Typed = Table.TransformColumnTypes(Party, {{"party", type text}, {"name_class", type text}, {"n", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"party", "name_class", "n"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

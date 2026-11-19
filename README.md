@@ -13,11 +13,12 @@ UMDAC/
 ├── notebooks/
 │   ├── 04_integration_validation.ipynb      RUN FIRST: shared load, QC issues log, rule validation   (Jia Yi)
 │   ├── 01_currency_payment_analysis.ipynb   currency, USD amount, business vs consumer             (Jia Yi)
-│   ├── 02_member2_analysis.ipynb            template (e.g. routing, time)                          (Member 2)
+│   ├── 02_member2_analysis.ipynb            routing, duration, FX                                  (Member 2)
 │   └── 03_anomalies_accounts_details.ipynb  anomalies, accounts, party details and tokens          (Member 3)
 ├── outputs/
 │   ├── figures/      charts for dashboards and slides (PNG, named by rule / hypothesis ID)
-│   └── tables/       QC log, summary tables, hypotheses_03.csv, rules_log.csv (combined)
+│   └── tables/       QC log, summary tables, hypotheses_03.csv, rules_log.csv (combined), evidence_matrix.csv,
+│                     FINDINGS.md (generated), submission_readiness.csv, principal_rule_signoff.csv
 │       └── rules/    one rules file per notebook (rules_04_core.csv, rules_03_anomalies.csv, rules_02.csv)
 ├── requirements.txt
 └── README.md
@@ -26,9 +27,17 @@ UMDAC/
 ## How to run
 1. Put `swift_umdac_datathon_2026_fictitious_payment_data.csv` in `data/raw/`. It should be the only CSV there.
 2. `pip install -r requirements.txt` (Anaconda already has most of these. You may only need `pip install duckdb`.)
-3. Run `notebooks/04_integration_validation.ipynb` first. The first build takes about 10–15 minutes.
-4. Then run 01, 02 and 03 in any order. Each one starts with the same setup cell, so everyone loads the data the same way.
-5. Low on memory? Set `SWIFT_MEMORY=4GB` and `SWIFT_THREADS=4` before starting Jupyter.
+3. Double-click `run_notebooks_in_order.bat`. It runs **04 → 01 → 02 → 03 → 04** (about 25 minutes) and writes progress to
+   `outputs/tables/_run_status.txt`. Do not open or save the notebooks while it runs (that would overwrite the executed outputs).
+   The first 04 builds the data (10–15 minutes the first time); the last 04 combines all rules and checks readiness.
+4. Low on memory? Set `SWIFT_MEMORY=4GB` and `SWIFT_THREADS=4` before starting Jupyter.
+5. Read `outputs/tables/FINDINGS.md` (generated from the evidence matrix on every run; never edit it by hand).
+
+## Before submitting: human sign-off
+- `outputs/tables/submission_readiness.csv` must be all True. The last row is the **human sign-off**.
+- Open `outputs/tables/principal_rule_signoff.csv`. For each of the 11 key rules, check `current_value` against the table / figure in
+  `evidence_files`, then set `approved` = True and write your name in `reviewer`. Re-run notebook 04 (or the .bat) afterwards.
+- A sign-off is tied to the value you saw. If a later run changes that value, the notebook resets `approved` to False and writes a note.
 
 ## Shared definitions
 - *Country* = bank (BIC) country, from BIC characters 5–6.
@@ -39,7 +48,11 @@ UMDAC/
 ## Rules log
 - Each notebook writes `outputs/tables/rules/rules_<notebook>.csv`. `combine_rules()` merges them into `outputs/tables/rules_log.csv`.
 - Shared columns: `id, group, rule, test, value, verdict, evidence_files, interpretation`.
-- Verdict scale: **Confirmed** (≥99% of rows, or the effect matches) · **Strong** (95–99%) · **Partial** (70–95%, or only in a subgroup) · **Rejected**.
+- One verdict system (notebook 04). *Accuracy* rules (a deterministic prediction) are graded by the share of rows that obey them:
+  **Confirmed** ≥99% · **Strong** 95–99% · **Partial** 70–95% · **Weak** <70%. *Effect* rules (a size, an independence, a distribution):
+  **Supported** (effect holds and the source notebook reports an agreeing holdout) · **Approximate** · **Rejected** · **Inconclusive**.
+- Causal status: **Mechanism** · **Association** · **Structural** · **Rejected** · **Unresolved**. None of these proves the generator's code.
+- Detector precision / recall (notebook 03) are in-sample and exploratory, not holdout performance.
 - Rule IDs match the chart file names and the slides.
 
 ## Team conventions

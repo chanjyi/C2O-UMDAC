@@ -1,0 +1,60 @@
+table d_noise_line_vs_normal
+	lineageTag: 2b3f5f49-b3e4-31e8-6c9d-91728f45e27f
+
+	column group
+		dataType: string
+		lineageTag: 3bd457f9-079b-68d0-b341-c61589490c44
+		summarizeBy: none
+		sourceColumn: group
+
+		annotation SummarizationSetBy = Automatic
+
+	column side
+		dataType: string
+		lineageTag: 7abea52b-a777-a225-e5fd-7df67d4bd505
+		summarizeBy: none
+		sourceColumn: side
+
+		annotation SummarizationSetBy = Automatic
+
+	column diff
+		dataType: double
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 20fe84ab-51cd-ef72-0a3d-8f56c98f21da
+		summarizeBy: sum
+		sourceColumn: diff
+
+		annotation SummarizationSetBy = Automatic
+
+	column ci_lo
+		dataType: double
+		formatString: 0.0%
+		lineageTag: a356b2ab-1da6-bcf3-2f03-012032cb89ee
+		summarizeBy: sum
+		sourceColumn: ci_lo
+
+		annotation SummarizationSetBy = Automatic
+
+	column ci_hi
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f7e92d9c-59f7-a084-587b-188421b698c6
+		summarizeBy: sum
+		sourceColumn: ci_hi
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_noise_line_vs_normal = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "d_noise_line_vs_normal.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"group", "side", "diff", "ci_lo", "ci_hi"}, MissingField.UseNull),
+				    Typed = Table.TransformColumnTypes(Selected, {{"group", type text}, {"side", type text}, {"diff", type number}, {"ci_lo", type number}, {"ci_hi", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"group", "side", "diff", "ci_lo", "ci_hi"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

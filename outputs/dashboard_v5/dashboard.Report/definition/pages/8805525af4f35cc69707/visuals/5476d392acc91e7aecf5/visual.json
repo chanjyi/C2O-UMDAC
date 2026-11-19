@@ -1,0 +1,64 @@
+{
+ "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+ "name": "5476d392acc91e7aecf5",
+ "position": {
+  "x": 60,
+  "y": 1030,
+  "width": 1800,
+  "height": 40,
+  "z": 2,
+  "tabOrder": 2
+ },
+ "visual": {
+  "visualType": "textbox",
+  "objects": {
+   "general": [
+    {
+     "properties": {
+      "paragraphs": [
+       {
+        "textRuns": [
+         {
+          "value": "Verdict: Confirmed ≥99% of rows · Strong 95–99% · Partial 70–95% · Supported = effect holds out of sample · Approximate · Rejected · Inconclusive. Causal status: Mechanism · Association · Structural · Unresolved (definitions on page 1).",
+          "textStyle": {
+           "fontSize": "11pt"
+          }
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "visualContainerObjects": {
+   "border": [
+    {
+     "properties": {
+      "show": {
+       "expr": {
+        "Literal": {
+         "Value": "false"
+        }
+       }
+      }
+     }
+    }
+   ],
+   "background": [
+    {
+     "properties": {
+      "show": {
+       "expr": {
+        "Literal": {
+         "Value": "false"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  "drillFilterOtherVisuals": true
+ }
+}

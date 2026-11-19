@@ -1,0 +1,80 @@
+table rules_02
+	lineageTag: bb56aa37-a482-e082-a657-0e56a5b64ed8
+
+	column id
+		dataType: string
+		lineageTag: 811dd042-46f5-ecc0-e4e6-ac6991826757
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column group
+		dataType: string
+		lineageTag: df6309ba-18a3-22fb-949a-23753b9e9eab
+		summarizeBy: none
+		sourceColumn: group
+
+		annotation SummarizationSetBy = Automatic
+
+	column rule
+		dataType: string
+		lineageTag: 0357f9db-7fa9-9a43-9fae-d0447d55ec6d
+		summarizeBy: none
+		sourceColumn: rule
+
+		annotation SummarizationSetBy = Automatic
+
+	column test
+		dataType: string
+		lineageTag: 107a3142-071d-9397-397f-51f36af6da52
+		summarizeBy: none
+		sourceColumn: test
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: string
+		lineageTag: 047547d3-77e8-9ae6-94fa-916c82e20740
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column verdict
+		dataType: string
+		lineageTag: f53846ea-9b2a-aefe-e95b-592f36b34411
+		summarizeBy: none
+		sourceColumn: verdict
+
+		annotation SummarizationSetBy = Automatic
+
+	column evidence_files
+		dataType: string
+		lineageTag: 1e495366-7ee0-8a54-b441-6daaf6294cfe
+		summarizeBy: none
+		sourceColumn: evidence_files
+
+		annotation SummarizationSetBy = Automatic
+
+	column interpretation
+		dataType: string
+		lineageTag: 7f6981ae-73d5-899c-265b-fe94fea75a17
+		summarizeBy: none
+		sourceColumn: interpretation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition rules_02 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "rules/rules_02.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"id", type text}, {"group", type text}, {"rule", type text}, {"test", type text}, {"value", type text}, {"verdict", type text}, {"evidence_files", type text}, {"interpretation", type text}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"id", "group", "rule", "test", "value", "verdict", "evidence_files", "interpretation"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

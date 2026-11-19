@@ -1,0 +1,241 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "96d08f083c0449efcdd9",
+  "position": {
+    "x": 970,
+    "y": 628,
+    "width": 890,
+    "height": 436,
+    "z": 4,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "a_detector_performance"
+                    }
+                  },
+                  "Property": "detector"
+                }
+              },
+              "queryRef": "a_detector_performance.detector",
+              "nativeQueryRef": "Detector",
+              "displayName": "Detector"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "a_detector_performance"
+                    }
+                  },
+                  "Property": "rule"
+                }
+              },
+              "queryRef": "a_detector_performance.rule",
+              "nativeQueryRef": "Rule",
+              "displayName": "Rule"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "a_detector_performance"
+                        }
+                      },
+                      "Property": "precision"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(a_detector_performance.precision)",
+              "nativeQueryRef": "Precision",
+              "displayName": "Precision"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "a_detector_performance"
+                        }
+                      },
+                      "Property": "recall"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(a_detector_performance.recall)",
+              "nativeQueryRef": "Recall",
+              "displayName": "Recall"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "a_detector_performance"
+                        }
+                      },
+                      "Property": "alerts_per_10k"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(a_detector_performance.alerts_per_10k)",
+              "nativeQueryRef": "Alerts / 10k",
+              "displayName": "Alerts / 10k"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "a_detector_performance"
+                  }
+                },
+                "Property": "detector"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rule-based detectors: in-sample, exploratory (not holdout performance)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

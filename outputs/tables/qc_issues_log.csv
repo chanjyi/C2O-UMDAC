@@ -2,7 +2,8 @@ check,result,status,decision,reason
 Total rows,10000000,pass,Keep all,Baseline count
 Missing values in any column except ANOMALY_TYPE,0,pass,None to fix,Every field is filled
 Normal rows (blank ANOMALY_TYPE),9992994,pass,Recoded blank to 'NONE',"Blank is a label, not missing data"
-Exact duplicate rows (hash of all raw columns),1,REVIEW,Keep,"DUPLICATE_PAYMENT is a labelled behaviour (see notebook 03, 4.3)"
+Full-row hash duplicate candidates (same 64-bit hash of all raw columns),1,REVIEW,Keep; verified below,A matching hash is only a candidate: two different rows can share a hash
+"Verified exact duplicate rows (every raw column equal, checked on the hash candidates)",1,REVIEW,Keep; documented exception,Only rows equal in every raw column count as exact duplicates
 Payments sharing time + accounts + amount + currency,2,REVIEW,"Keep, review",Same 5-field signature; not full-row copies
 USD_AMOUNT <= 0,0,pass,Flag only,Would break log-amount analysis
 USD_AMOUNT range,"0.01 to 15,664,132,213",pass,Keep,Range check

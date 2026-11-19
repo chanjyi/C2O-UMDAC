@@ -1,0 +1,50 @@
+table fx2_conversion_prediction
+	lineageTag: 477d2c3a-1cd6-6432-6ba0-6796952cff2e
+
+	column type
+		dataType: string
+		lineageTag: 4f698a93-62e2-0604-67bc-8d2e441fdc0d
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: d668f90c-6db1-6e9a-b31e-0597c3346045
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column acc_with_payment_ccy
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 0d2f979a-e501-27c7-06ab-dc471bdcb603
+		summarizeBy: sum
+		sourceColumn: acc_with_payment_ccy
+
+		annotation SummarizationSetBy = Automatic
+
+	column acc_banks_only
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 75e57108-20a5-5187-0f27-17217883d253
+		summarizeBy: sum
+		sourceColumn: acc_banks_only
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fx2_conversion_prediction = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "fx2_conversion_prediction.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"type", type text}, {"n", Int64.Type}, {"acc_with_payment_ccy", type number}, {"acc_banks_only", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"type", "n", "acc_with_payment_ccy", "acc_banks_only"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

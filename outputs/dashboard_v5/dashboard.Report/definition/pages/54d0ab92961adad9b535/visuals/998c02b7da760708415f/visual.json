@@ -1,0 +1,165 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "998c02b7da760708415f",
+  "position": {
+    "x": 60,
+    "y": 16,
+    "width": 1800,
+    "height": 150,
+    "z": 0,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Anomalies: each label has a recognisable signature",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A1   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Fat-finger payments are far more often ≈32× or more away from the typical amount (rounded order of magnitude ≥ 2: 72.0% vs 9.7%); an exact ×10^k multiplier is not established",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "   [Supported]",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontStyle": "italic",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A2 / A2b   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Duplicates come in bursts of 2–5 identical payments (same sender, payee, currency and amount) about 18 min apart; every copy is labelled; an unlabelled original before the burst is found for 9% of bursts (chance rate 9%). Same pattern for B and C senders",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "   [Supported]",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontStyle": "italic",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A3 / A4   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Romance: one consumer pays the same consumer several times within a day with rising amounts. CEO: business sender, first-time payee, above-usual amount",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "   [Supported]",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontStyle": "italic",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A5 / A6 / A7   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Account replacement: mechanism not recovered. CUSTOMER_RECALL (not in the appendix): no linked payment. Anomaly rates differ by segment",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "   [A5 Inconclusive · A6 Confirmed · A7 Approximate]",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontStyle": "italic",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

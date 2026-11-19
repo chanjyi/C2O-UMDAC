@@ -1,0 +1,17 @@
+item,complete
+"Rule files from notebooks 02, 03, 04 exist",True
+"Evidence files from notebooks 01, 02, 03 and 04 exist",True
+Evidence made by the CURRENT notebook code (stale: none),True
+Evidence made from the CURRENT data build (stale: none),True
+Rules and evidence written in the same run (not: none),True
+Notebooks 01-03 saved with executed outputs (not: none),True
+No placeholder / template text in rules_log.csv,True
+No repeated rule IDs,True
+Every rule has a causal status,True
+"Every Mechanism rule (14) has a 95% CI, out-of-sample, subgroup and practical evidence",True
+Every Association rule has a statistic and a practical meaning,True
+Every Supported effect rule has a holdout that agrees (not: none),True
+No missing numbers (nan) in the evidence text (found in: none),True
+Every rule has a verdict from the single verdict system,True
+External-data scan clean,True
+"Principal reconstructed rules reviewed against numerical tables, figures and holdout (pending: ['R-BC1', 'R-RT5', 'A2'])",False

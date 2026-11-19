@@ -1,3 +1,3 @@
 grp,pairs,median_payments,share_3plus,all_payments_labelled,median_span_days,mean_amt_time_corr,share_rising,cross_border
 ROMANCE pairs,500,5.0,0.878,1.0,0.012355324074074074,,0.962,0.97
-"CONTROL: normal C2C pairs, 3+ payments",26454,4.0,1.0,0.0,55.84133101851852,0.003613198046777279,0.504536176003629,0.9032660467226128
+"CONTROL: normal C2C pairs, 3+ payments",26145,4.0,1.0,0.0,55.846805555555555,0.0027618747660335427,0.504302925989673,0.9023522662076879

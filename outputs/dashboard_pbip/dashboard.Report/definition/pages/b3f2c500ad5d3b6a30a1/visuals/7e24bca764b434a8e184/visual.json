@@ -1,0 +1,357 @@
+{
+ "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+ "name": "7e24bca764b434a8e184",
+ "position": {
+  "x": 970,
+  "y": 628,
+  "width": 890,
+  "height": 436,
+  "z": 4,
+  "tabOrder": 4
+ },
+ "visual": {
+  "visualType": "lineClusteredColumnComboChart",
+  "query": {
+   "queryState": {
+    "Category": {
+     "projections": [
+      {
+       "field": {
+        "Column": {
+         "Expression": {
+          "SourceRef": {
+           "Entity": "rt5_gap_by_participants"
+          }
+         },
+         "Property": "PARTICIPANT_COUNT"
+        }
+       },
+       "queryRef": "rt5_gap_by_participants.PARTICIPANT_COUNT",
+       "nativeQueryRef": "PARTICIPANT_COUNT",
+       "active": true
+      }
+     ]
+    },
+    "Y": {
+     "projections": [
+      {
+       "field": {
+        "Aggregation": {
+         "Expression": {
+          "Column": {
+           "Expression": {
+            "SourceRef": {
+             "Entity": "rt5_gap_by_participants"
+            }
+           },
+           "Property": "gap_rate"
+          }
+         },
+         "Function": 0
+        }
+       },
+       "queryRef": "Sum(rt5_gap_by_participants.gap_rate)",
+       "nativeQueryRef": "Observed",
+       "displayName": "Observed"
+      }
+     ]
+    },
+    "Y2": {
+     "projections": [
+      {
+       "field": {
+        "Aggregation": {
+         "Expression": {
+          "Column": {
+           "Expression": {
+            "SourceRef": {
+             "Entity": "rt5_gap_by_participants"
+            }
+           },
+           "Property": "predicted_per_link"
+          }
+         },
+         "Function": 0
+        }
+       },
+       "queryRef": "Sum(rt5_gap_by_participants.predicted_per_link)",
+       "nativeQueryRef": "5% per link model",
+       "displayName": "5% per link model"
+      }
+     ]
+    }
+   },
+   "sortDefinition": {
+    "sort": [
+     {
+      "field": {
+       "Column": {
+        "Expression": {
+         "SourceRef": {
+          "Entity": "rt5_gap_by_participants"
+         }
+        },
+        "Property": "PARTICIPANT_COUNT"
+       }
+      },
+      "direction": "Ascending"
+     }
+    ]
+   }
+  },
+  "objects": {
+   "categoryAxis": [
+    {
+     "properties": {
+      "showAxisTitle": {
+       "expr": {
+        "Literal": {
+         "Value": "true"
+        }
+       }
+      },
+      "titleText": {
+       "expr": {
+        "Literal": {
+         "Value": "'Banks on the path'"
+        }
+       }
+      },
+      "axisType": {
+       "expr": {
+        "Literal": {
+         "Value": "'Categorical'"
+        }
+       }
+      }
+     }
+    }
+   ],
+   "valueAxis": [
+    {
+     "properties": {
+      "showAxisTitle": {
+       "expr": {
+        "Literal": {
+         "Value": "true"
+        }
+       }
+      },
+      "titleText": {
+       "expr": {
+        "Literal": {
+         "Value": "'% of payments with a gap'"
+        }
+       }
+      }
+     }
+    }
+   ],
+   "labels": [
+    {
+     "properties": {
+      "show": {
+       "expr": {
+        "Literal": {
+         "Value": "true"
+        }
+       }
+      },
+      "labelDensity": {
+       "expr": {
+        "Literal": {
+         "Value": "40L"
+        }
+       }
+      }
+     }
+    },
+    {
+     "properties": {
+      "showSeries": {
+       "expr": {
+        "Literal": {
+         "Value": "false"
+        }
+       }
+      }
+     },
+     "selector": {
+      "metadata": "Sum(rt5_gap_by_participants.predicted_per_link)"
+     }
+    }
+   ]
+  },
+  "visualContainerObjects": {
+   "title": [
+    {
+     "properties": {
+      "text": {
+       "expr": {
+        "Literal": {
+         "Value": "'R-RT5: a ~5% gap chance per link fits every path length (goodness of fit p = 0.10; largest miss 1.4 pts, at 10 banks, n ≈ 2,200)'"
+        }
+       }
+      },
+      "fontSize": {
+       "expr": {
+        "Literal": {
+         "Value": "12D"
+        }
+       }
+      },
+      "bold": {
+       "expr": {
+        "Literal": {
+         "Value": "true"
+        }
+       }
+      }
+     }
+    }
+   ],
+   "border": [
+    {
+     "properties": {
+      "show": {
+       "expr": {
+        "Literal": {
+         "Value": "true"
+        }
+       }
+      },
+      "width": {
+       "expr": {
+        "Literal": {
+         "Value": "2D"
+        }
+       }
+      },
+      "radius": {
+       "expr": {
+        "Literal": {
+         "Value": "8D"
+        }
+       }
+      }
+     }
+    }
+   ],
+   "subTitle": [
+    {
+     "properties": {
+      "show": {
+       "expr": {
+        "Literal": {
+         "Value": "false"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  "drillFilterOtherVisuals": true
+ },
+ "filterConfig": {
+  "filters": [
+   {
+    "name": "f84dc296e80e1943ddc1",
+    "field": {
+     "Column": {
+      "Expression": {
+       "SourceRef": {
+        "Entity": "rt6_intermediaries_geometric"
+       }
+      },
+      "Property": "intermediaries"
+     }
+    },
+    "type": "Advanced",
+    "filter": {
+     "Version": 2,
+     "From": [
+      {
+       "Name": "r",
+       "Entity": "rt6_intermediaries_geometric",
+       "Type": 0
+      }
+     ],
+     "Where": [
+      {
+       "Condition": {
+        "Comparison": {
+         "ComparisonKind": 4,
+         "Left": {
+          "Column": {
+           "Expression": {
+            "SourceRef": {
+             "Source": "r"
+            }
+           },
+           "Property": "intermediaries"
+          }
+         },
+         "Right": {
+          "Literal": {
+           "Value": "6L"
+          }
+         }
+        }
+       }
+      }
+     ]
+    },
+    "howCreated": "User"
+   },
+   {
+    "name": "a3d4d64863b8eccd8705",
+    "field": {
+     "Column": {
+      "Expression": {
+       "SourceRef": {
+        "Entity": "rt5_gap_by_participants"
+       }
+      },
+      "Property": "PARTICIPANT_COUNT"
+     }
+    },
+    "type": "Advanced",
+    "filter": {
+     "Version": 2,
+     "From": [
+      {
+       "Name": "r",
+       "Entity": "rt5_gap_by_participants",
+       "Type": 0
+      }
+     ],
+     "Where": [
+      {
+       "Condition": {
+        "Comparison": {
+         "ComparisonKind": 4,
+         "Left": {
+          "Column": {
+           "Expression": {
+            "SourceRef": {
+             "Source": "r"
+            }
+           },
+           "Property": "PARTICIPANT_COUNT"
+          }
+         },
+         "Right": {
+          "Literal": {
+           "Value": "8L"
+          }
+         }
+        }
+       }
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

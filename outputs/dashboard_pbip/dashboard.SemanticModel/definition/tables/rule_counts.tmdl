@@ -1,0 +1,60 @@
+table rule_counts
+	lineageTag: 960da879-39eb-4497-7e4b-cd804eddb4fe
+
+	column group
+		dataType: string
+		lineageTag: 501571f9-aa71-f09f-363e-11956d21aca6
+		summarizeBy: none
+		sourceColumn: group
+		sortByColumn: group_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_verdict
+		dataType: string
+		lineageTag: 8865bebb-5bab-dbdd-ba51-360b7f0b534d
+		summarizeBy: none
+		sourceColumn: final_verdict
+
+		annotation SummarizationSetBy = Automatic
+
+	column causal_status
+		dataType: string
+		lineageTag: 74bdc0ba-07b1-fa1b-8292-e69a922d58cc
+		summarizeBy: none
+		sourceColumn: causal_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column rules
+		dataType: int64
+		lineageTag: 4ebe013e-915e-42ee-1f3a-44d788872dba
+		summarizeBy: sum
+		sourceColumn: rules
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_order
+		dataType: int64
+		lineageTag: 1b4aa4b6-41d0-02c8-9677-976c955526bb
+		summarizeBy: none
+		sourceColumn: group_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition rule_counts = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "evidence_matrix.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"group", "final_verdict", "causal_status"}, MissingField.UseNull),
+				    Counted = Table.Group(Selected, {"group", "final_verdict", "causal_status"}, {{"rules", each Table.RowCount(_), Int64.Type}}),
+				    Grouped = Table.AddColumn(Counted, "group_order", each List.PositionOf({"Currency", "Amount", "Business/consumer", "Routing", "Duration", "FX", "Anomalies", "Accounts", "Details"}, [group]), Int64.Type),
+				    Typed = Table.TransformColumnTypes(Grouped, {{"group", type text}, {"final_verdict", type text}, {"causal_status", type text}, {"rules", Int64.Type}, {"group_order", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"group", "final_verdict", "causal_status", "rules", "group_order"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

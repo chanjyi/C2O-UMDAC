@@ -1,0 +1,370 @@
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 203701 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 01_currency_payment_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 581234 bytes to 01_currency_payment_analysis.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 371483 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 597556 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 229543 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 371785 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 600017 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 229577 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 371952 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 229541 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 240932 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 01_currency_payment_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 587362 bytes to 01_currency_payment_analysis.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 380165 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 620233 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 246165 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\Lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\Scripts\jupyter-nbconvert-script.py", line 10, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\jupyter_core\application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\traitlets\config\application.py", line 1075, in launch_instance
+    app.start()
+    ~~~~~~~~~^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        notebook_filename, resources, input_buffer=input_buffer
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        notebook_filename, resources=resources
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\exporters\exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\exporters\exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        nbformat.read(file_stream, as_version=4), resources=resources, **kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\exporters\notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\exporters\exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\exporters\exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\preprocessors\base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\preprocessors\execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbconvert\preprocessors\execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+  File "C:\Users\User\anaconda3\Lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\User\anaconda3\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\User\anaconda3\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Submission readiness (re-run LAST): files, FRESHNESS and VALIDITY. Every row must be True before the PDFs are made.
+import json as _json
+rl = pd.read_csv(TAB / 'rules_log.csv')
+placeholder = rl.astype(str).apply(lambda c: c.str.contains(r'TODO|\?\?|-example', regex=True)).any().any()
+mech = em[em.causal_status == 'Mechanism']
+evs = {k: pd.read_csv(RULES / f'evidence_{k}.csv') for k in ['01', '02', '03', '04'] if (RULES / f'evidence_{k}.csv').exists()}
+# Freshness 1: every evidence file was made by the code that is in the notebook NOW (code hash) and from the current data build
+stale_code = [k for k, e in evs.items() if str(e.code_hash.iloc[0]) != code_hash(k)]
+stale_data = [k for k, e in evs.items() if str(e.data_stamp.iloc[0]) != DATA_STAMP]
+# Freshness 2: each notebook's rules file was written in the same run as its evidence file (within 15 minutes)
+pairs = {'02': 'rules_02.csv', '03': 'rules_03_anomalies.csv'}
+apart = [k for k, f in pairs.items() if not (RULES / f).exists() or abs((RULES / f).stat().st_mtime - (RULES / f'evidence_{k}.csv').stat().st_mtime) > 900]
+# Freshness 3: notebooks 01-03 were saved with their executed outputs (04 is being executed right now)
+def unrun(prefix):
+    f = sorted((ROOT / 'notebooks').glob(f'{prefix}_*.ipynb'))[0]
+    return sum(c['cell_type'] == 'code' and c.get('execution_count') is None for c in _json.loads(f.read_text(encoding='utf-8'))['cells'])
+not_executed = [k for k in ['01', '02', '03'] if unrun(k)]
+# Validity: no missing numbers, every 'Supported' effect has an agreeing holdout, accuracy grades match the share scale
+txt_cols = ['statistic_ci', 'out_of_sample', 'invariance', 'p_value']
+nan_txt = em[em[txt_cols].astype(str).apply(lambda c: c.str.contains(r'\bnan\b|\bn/a\b', regex=True)).any(axis=1) & em[txt_cols].notna().any(axis=1)].id.tolist()
+bad_supported = em[(em.final_verdict == 'Supported') & ~em.holdout_agrees.astype(str).eq('True')].id.tolist()
+readiness = save_table(pd.DataFrame([
+    ('Rule files from notebooks 02, 03, 04 exist', all((RULES / f).exists() for f in ['rules_04_core.csv', 'rules_02.csv', 'rules_03_anomalies.csv'])),
+    ('Evidence files from notebooks 01, 02, 03 and 04 exist', len(evs) == 4),
+    (f'Evidence made by the CURRENT notebook code (stale: {stale_code or "none"})', len(evs) == 4 and not stale_code),
+    (f'Evidence made from the CURRENT data build (stale: {stale_data or "none"})', len(evs) == 4 and not stale_data),
+    (f'Rules and evidence written in the same run (not: {apart or "none"})', not apart),
+    (f'Notebooks 01-03 saved with executed outputs (not: {not_executed or "none"})', not not_executed),
+    ('No placeholder / template text in rules_log.csv', not placeholder),
+    ('No repeated rule IDs', not rl.id.astype(str).duplicated().any()),
+    ('Every rule has a causal status', 'Not assessed' not in set(em.causal_status)),
+    (f'Every Mechanism rule ({len(mech)}) has a 95% CI, out-of-sample, subgroup and practical evidence',
+        bool(len(mech)) and mech[MECHANISM_NEEDS].notna().all().all() and (mech.estimate_type == '95% CI').all()),
+    ('Every Association rule has a statistic and a practical meaning', not [1 for i, c in missing_req if i in set(em[em.causal_status == 'Association'].id)]),
+    (f'Every Supported effect rule has a holdout that agrees (not: {bad_supported or "none"})', not bad_supported),
+    (f'No missing numbers (nan) in the evidence text (found in: {nan_txt or "none"})', not nan_txt),
+    ('Every rule has a verdict from the single verdict system', em.final_verdict.isin(['Confirmed', 'Strong', 'Partial', 'Weak', 'Supported', 'Approximate', 'Rejected', 'Inconclusive']).all()),
+    ('External-data scan clean', scan.empty),
+], columns=['item', 'complete']), 'submission_readiness')
+print('READY' if readiness.complete.all() else 'NOT READY: fix the False rows')
+print('Note: READY means files, code version, data and evidence checks pass. It cannot prove that a rule is the generator\'s real code.')
+readiness
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mAttributeError[39m                            Traceback (most recent call last)
+[32m~\AppData\Local\Temp\ipykernel_28056\3497163084.py[39m in [36m?[39m[34m()[39m
+[32m      4[39m placeholder = rl.astype(str).apply([38;5;28;01mlambda[39;00m c: c.str.contains([33mr'TODO|\?\?|-example'[39m, regex=[38;5;28;01mTrue[39;00m)).any().any()
+[32m      5[39m mech = em[em.causal_status == [33m'Mechanism'[39m]
+[32m      6[39m evs = {k: pd.read_csv(RULES / f'evidence_{k}.csv') [38;5;28;01mfor[39;00m k [38;5;28;01min[39;00m [[33m'01'[39m, [33m'02'[39m, [33m'03'[39m, [33m'04'[39m] [38;5;28;01mif[39;00m (RULES / f'evidence_{k}.csv').exists()}
+[32m      7[39m [38;5;66;03m# Freshness 1: every evidence file was made by the code that is in the notebook NOW (code hash) and from the current data build[39;00m
+[32m----> [39m[32m8[39m stale_code = [k [38;5;28;01mfor[39;00m k, e [38;5;28;01min[39;00m evs.items() [38;5;28;01mif[39;00m str(e.code_hash.iloc[[32m0[39m]) != code_hash(k)]
+[32m      9[39m stale_data = [k [38;5;28;01mfor[39;00m k, e [38;5;28;01min[39;00m evs.items() [38;5;28;01mif[39;00m str(e.data_stamp.iloc[[32m0[39m]) != DATA_STAMP]
+[32m     10[39m [38;5;66;03m# Freshness 2: each notebook's rules file was written in the same run as its evidence file (within 15 minutes)[39;00m
+[32m     11[39m pairs = {[33m'02'[39m: [33m'rules_02.csv'[39m, [33m'03'[39m: [33m'rules_03_anomalies.csv'[39m}
+
+[32m~\anaconda3\Lib\site-packages\pandas\core\generic.py[39m in [36m?[39m[34m(self, name)[39m
+[32m   6317[39m             [38;5;28;01mand[39;00m name [38;5;28;01mnot[39;00m [38;5;28;01min[39;00m self._accessors
+[32m   6318[39m             [38;5;28;01mand[39;00m self._info_axis._can_hold_identifiers_and_holds_name(name)
+[32m   6319[39m         ):
+[32m   6320[39m             [38;5;28;01mreturn[39;00m self[name]
+[32m-> [39m[32m6321[39m         [38;5;28;01mreturn[39;00m object.__getattribute__(self, name)
+
+[31mAttributeError[39m: 'DataFrame' object has no attribute 'code_hash'
+
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 256640 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 01_currency_payment_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 602506 bytes to 01_currency_payment_analysis.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 384325 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 626731 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 260050 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 627385 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 259977 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 01_currency_payment_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 600869 bytes to 01_currency_payment_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 627549 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\nbformat\__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 243037 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 247969 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 01_currency_payment_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 603133 bytes to 01_currency_payment_analysis.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 384768 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 629035 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 247822 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 384818 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 629411 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 248191 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 630345 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 248236 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 248576 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 248574 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 01_currency_payment_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 603133 bytes to 01_currency_payment_analysis.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 384818 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 630345 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 248541 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 02_member2_analysis.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 387281 bytes to 02_member2_analysis.ipynb
+[NbConvertApp] Converting notebook 03_anomalies_accounts_details.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 633506 bytes to 03_anomalies_accounts_details.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 249081 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 249081 bytes to 04_integration_validation.ipynb
+[NbConvertApp] Converting notebook 04_integration_validation.ipynb to notebook
+C:\Users\User\anaconda3\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[NbConvertApp] Writing 250321 bytes to 04_integration_validation.ipynb

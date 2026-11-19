@@ -1,0 +1,55 @@
+table bc1_pair_independence
+	lineageTag: 5ee63568-7306-054b-2653-b80d8cc0f741
+
+	column pair
+		dataType: string
+		lineageTag: 368849fa-1ed6-e6dd-bb8d-ea4f69595753
+		summarizeBy: none
+		sourceColumn: pair
+		sortByColumn: pair_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e33e6805-0288-2e2c-ed68-cc8185753086
+		summarizeBy: sum
+		sourceColumn: observed
+
+		annotation SummarizationSetBy = Automatic
+
+	column if_independent
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 5d173d60-fd4a-506f-fa7d-daaa3183732a
+		summarizeBy: sum
+		sourceColumn: if_independent
+
+		annotation SummarizationSetBy = Automatic
+
+	column pair_order
+		dataType: int64
+		lineageTag: b255c153-50a1-9814-ca74-865ad77ea97f
+		summarizeBy: none
+		sourceColumn: pair_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bc1_pair_independence = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "bc1_pair_independence.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Renamed = Table.RenameColumns(Promoted, {{Table.ColumnNames(Promoted){0}, "pair"}, {"observed_%", "o"}, {"independent_%", "i"}}),
+				    Scaled = Table.AddColumn(Table.AddColumn(Renamed, "observed", each Number.FromText([o], "en-US") / 100, type number), "if_independent", each Number.FromText([i], "en-US") / 100, type number),
+				    Clean = Table.RemoveColumns(Scaled, {"o", "i"}),
+				    Ordered = Table.AddColumn(Clean, "pair_order", each List.PositionOf({"C2C", "C2B", "B2C", "B2B"}, [pair]), Int64.Type),
+				    Typed = Table.TransformColumnTypes(Ordered, {{"pair", type text}, {"observed", type number}, {"if_independent", type number}, {"pair_order", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"pair", "observed", "if_independent", "pair_order"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

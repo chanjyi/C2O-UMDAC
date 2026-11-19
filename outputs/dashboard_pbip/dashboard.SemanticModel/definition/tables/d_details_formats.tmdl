@@ -1,0 +1,44 @@
+table d_details_formats
+	lineageTag: fe7fb158-ad6a-5742-4eff-adb9f91da40f
+
+	column side
+		dataType: string
+		lineageTag: a13b3baa-a44e-35df-897c-dd7576da8659
+		summarizeBy: none
+		sourceColumn: side
+
+		annotation SummarizationSetBy = Automatic
+
+	column format
+		dataType: string
+		lineageTag: 8430e3fb-cc91-0c85-40b8-c9f1ca81e0e1
+		summarizeBy: none
+		sourceColumn: format
+
+		annotation SummarizationSetBy = Automatic
+
+	column texts
+		dataType: double
+		formatString: #,0
+		lineageTag: e0b57dbd-88da-9007-6df6-b69c2503beb2
+		summarizeBy: sum
+		sourceColumn: texts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_details_formats = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "d_details_formats.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"side", "structured", "bic_only", "free_text", "both_formats"}, MissingField.UseNull),
+				    Unpivoted = Table.UnpivotOtherColumns(Selected, {"side"}, "format", "texts"),
+				    Named = Table.TransformColumns(Unpivoted, {{"format", each if _ = "structured" then "Numbered lines (1/ 2/ 3/)" else if _ = "bic_only" then "BIC line" else if _ = "free_text" then "Neither: free text" else "Both formats", type text}, {"side", each if _ = "ordering" then "Sender details" else "Receiver details", type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"side", type text}, {"format", type text}, {"texts", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"side", "format", "texts"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

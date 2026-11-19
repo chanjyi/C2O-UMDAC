@@ -1,0 +1,41 @@
+table dur2_country_speed_direct
+	lineageTag: 9107d98c-e586-5d64-e017-a70b9cc0b4cb
+
+	column country
+		dataType: string
+		lineageTag: 9cb1da17-95a5-c2b0-e43d-9473c59b82cc
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: ccb39f77-8e90-f330-c7f1-30f4c3f55ea8
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column med_duration_as_sender
+		dataType: double
+		formatString: 0
+		lineageTag: b7e37aa3-d46c-2af3-9f41-9b54e84b7157
+		summarizeBy: sum
+		sourceColumn: med_duration_as_sender
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dur2_country_speed_direct = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "dur2_country_speed_direct.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"country", type text}, {"n", Int64.Type}, {"med_duration_as_sender", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"country", "n", "med_duration_as_sender"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

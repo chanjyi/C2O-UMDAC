@@ -1,0 +1,36 @@
+table ccy1_ordering_vs_first_bank
+	lineageTag: 57e20304-712a-bf5d-74a9-10925365508f
+
+	column basis
+		dataType: string
+		lineageTag: 9f293332-4319-3785-55c8-9d220cdf1444
+		summarizeBy: none
+		sourceColumn: basis
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ea3e93cc-1120-5125-6a9d-bfb4adbeb434
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ccy1_ordering_vs_first_bank = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ccy1_ordering_vs_first_bank.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"ordering_bank_match", "first_path_bank_match"}, MissingField.UseNull),
+				    Unpivoted = Table.UnpivotOtherColumns(Selected, {}, "basis", "share"),
+				    Named = Table.TransformColumns(Unpivoted, {{"basis", each if _ = "ordering_bank_match" then "Ordering bank's local currency" else "First bank on the path: local currency", type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"basis", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"basis", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

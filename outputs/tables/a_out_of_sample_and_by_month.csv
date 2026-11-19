@@ -1,0 +1,7 @@
+id,oos,inv
+A1,baseline learned on train; test period: fat finger 72.2% vs normal 9.7%,fat finger by month 70.1%-73.1% over 3 months
+A2,test-period duplicates with an earlier matching payment 76.6% (control overall 8.9%),by month 72.1%-76.8% over 3 months
+A3,pairs starting in the test period: rising 100.0% vs normal 50.1%; within 1 day 100.0% vs 1.8%,"romance pairs rising, by start month 96.9%-100.0% over 3 months"
+A4,test period first-time payee: CEO 99.7% vs normal business 76.0%,CEO by month 99.6%-100.0% over 3 months
+D3,"test period: business tokens in B receivers 87.7%, person tokens in C receivers 90.9% (raw token shares)","by month B business 87.7%-88.4%, C person 90.8%-91.2%"
+D4,"test period: sender 100.0%, receiver 1.0%","by month sender 100.0%-100.0%, receiver 0.7%-1.0%"

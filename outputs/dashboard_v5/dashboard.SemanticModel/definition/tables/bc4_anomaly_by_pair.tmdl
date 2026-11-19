@@ -1,0 +1,41 @@
+table bc4_anomaly_by_pair
+	lineageTag: 7c068852-60fe-d7b6-3e87-98342abaa81e
+
+	column anomaly
+		dataType: string
+		lineageTag: 2df4cc2c-9e80-c330-622e-811b9acb6a4a
+		summarizeBy: none
+		sourceColumn: anomaly
+
+		annotation SummarizationSetBy = Automatic
+
+	column pair
+		dataType: string
+		lineageTag: e2ca8f85-ad63-e64c-0887-82475a461918
+		summarizeBy: none
+		sourceColumn: pair
+
+		annotation SummarizationSetBy = Automatic
+
+	column payments
+		dataType: int64
+		lineageTag: e79a8489-556a-9e47-3ee4-5efc8cfd3933
+		summarizeBy: sum
+		sourceColumn: payments
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bc4_anomaly_by_pair = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "bc4_anomaly_by_pair.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Unpivoted = Table.UnpivotOtherColumns(Promoted, {"anomaly"}, "pair", "payments"),
+				    Typed = Table.TransformColumnTypes(Unpivoted, {{"anomaly", type text}, {"pair", type text}, {"payments", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"anomaly", "pair", "payments"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

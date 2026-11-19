@@ -1,0 +1,43 @@
+table a_fatfinger_k_share
+	lineageTag: a722c88f-e2d8-6102-bc6a-67bb2f2d7e41
+
+	column k
+		dataType: int64
+		lineageTag: 2a426ece-5f20-0ef5-1786-c48f99e28daa
+		summarizeBy: none
+		sourceColumn: k
+
+		annotation SummarizationSetBy = Automatic
+
+	column payments
+		dataType: string
+		lineageTag: 1f1f1e69-f12a-ce94-f89c-4fee75af7e6c
+		summarizeBy: none
+		sourceColumn: payments
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 35ae01e8-30a8-113d-983b-4ea2bda4acde
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition a_fatfinger_k_share = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "a_fatfinger_k_share.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Unpivoted = Table.UnpivotOtherColumns(Promoted, {"k"}, "payments", "share"),
+				    Named = Table.TransformColumns(Unpivoted, {{"k", each Number.Round(Number.FromText(_, "en-US")), Int64.Type}, {"payments", each if _ = "fat_finger" then "Fat-finger payments" else "Normal payments", type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"k", Int64.Type}, {"payments", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"k", "payments", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

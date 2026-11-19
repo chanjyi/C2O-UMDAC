@@ -1,0 +1,165 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "83495a7b44e215b853f1",
+  "position": {
+    "x": 60,
+    "y": 16,
+    "width": 1800,
+    "height": 150,
+    "z": 0,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Business vs consumer: independent types, different activity, one timing",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R-BC3   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Business sender accounts send more payments than consumer accounts (B 44.8 vs C 9.9 (x4.5))",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "   [Supported]",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontStyle": "italic",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R-BC1   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Sender and receiver party types have a negligible association on all 10M rows (V = 0.0010; P(receiver B) 28.84% for B vs 28.73% for C senders; p = 0.003 naive, 0.595 account-clustered); consistent with independent assignment, not proof of it",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "   [Supported]",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontStyle": "italic",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R-BC2   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "On a clock offset LEARNED FROM THE DATA for each sender country (not verified time zones; Mon–Fri week assumed), payments follow office hours (77.6% local vs 65.0% UTC; V = 0.025)",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "   [Supported]",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontStyle": "italic",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "R-BC4   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "CEO scams only come from business senders; romance scams only from consumer senders (CEO: B 945, C 0; romance: B 0, C 2476)",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "   [Confirmed]",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontStyle": "italic",
+                      "color": "#605E5C"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

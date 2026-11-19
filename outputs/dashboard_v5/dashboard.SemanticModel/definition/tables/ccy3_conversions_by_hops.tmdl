@@ -1,0 +1,44 @@
+table ccy3_conversions_by_hops
+	lineageTag: de1bbf8d-8a16-f768-8fbf-3f76464bc394
+
+	column hops
+		dataType: int64
+		lineageTag: 0b1371c6-6f6b-b2e5-943c-336702f06bd2
+		summarizeBy: none
+		sourceColumn: hops
+
+		annotation SummarizationSetBy = Automatic
+
+	column conversions
+		dataType: string
+		lineageTag: fc03bf57-2085-5600-6f84-9a482b61840d
+		summarizeBy: none
+		sourceColumn: conversions
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7f4dd5e7-d17b-fc01-ed89-041db08cfb35
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ccy3_conversions_by_hops = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ccy3_conversions_by_hops.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Unpivoted = Table.UnpivotOtherColumns(Promoted, {"hops"}, "conversions", "pct"),
+				    Scaled = Table.AddColumn(Unpivoted, "share", each Number.FromText([pct], "en-US") / 100, type number),
+				    Kept = Table.SelectRows(Table.RemoveColumns(Scaled, {"pct"}), each [share] > 0),
+				    Typed = Table.TransformColumnTypes(Kept, {{"hops", Int64.Type}, {"conversions", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"hops", "conversions", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

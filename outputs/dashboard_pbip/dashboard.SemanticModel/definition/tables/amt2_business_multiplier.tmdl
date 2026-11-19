@@ -1,0 +1,52 @@
+table amt2_business_multiplier
+	lineageTag: c1cdfe98-8ddd-c1a9-e833-30a826426958
+
+	column pair
+		dataType: string
+		lineageTag: d5afdcce-1eb2-283e-6a4a-774fe941426e
+		summarizeBy: none
+		sourceColumn: pair
+		sortByColumn: pair_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_x_vs_C2C
+		dataType: double
+		formatString: 0.0
+		lineageTag: 69cb5f7f-5841-93fa-614b-7d042b3354b3
+		summarizeBy: sum
+		sourceColumn: observed_x_vs_C2C
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_x
+		dataType: double
+		formatString: 0.0
+		lineageTag: 451419e3-2aa6-2ddc-01d8-b6efccb10d91
+		summarizeBy: sum
+		sourceColumn: model_x
+
+		annotation SummarizationSetBy = Automatic
+
+	column pair_order
+		dataType: int64
+		lineageTag: 369f65a9-8aed-b5c0-c880-983878c55155
+		summarizeBy: none
+		sourceColumn: pair_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition amt2_business_multiplier = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "amt2_business_multiplier.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Ordered = Table.AddColumn(Promoted, "pair_order", each List.PositionOf({"C2C", "C2B", "B2C", "B2B"}, [pair]), Int64.Type),
+				    Typed = Table.TransformColumnTypes(Ordered, {{"pair", type text}, {"observed_x_vs_C2C", type number}, {"model_x", type number}, {"pair_order", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"pair", "observed_x_vs_C2C", "model_x", "pair_order"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

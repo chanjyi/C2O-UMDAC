@@ -1,0 +1,50 @@
+table dur4_by_anomaly
+	lineageTag: a96e30a4-14c2-1c1a-00ea-82aeed609155
+
+	column anomaly
+		dataType: string
+		lineageTag: 1de65b64-ec7d-c453-7126-471ce3808453
+		summarizeBy: none
+		sourceColumn: anomaly
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: bad58b9a-0b05-04ef-4887-3b4e4b562e34
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column med
+		dataType: double
+		formatString: 0.0
+		lineageTag: 81e95839-ec14-e3a4-643d-34365e77db3d
+		summarizeBy: sum
+		sourceColumn: med
+
+		annotation SummarizationSetBy = Automatic
+
+	column med_per_participant
+		dataType: double
+		formatString: 0.0
+		lineageTag: b0ad368d-57ff-beff-addb-1b9ea8d26c1c
+		summarizeBy: sum
+		sourceColumn: med_per_participant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dur4_by_anomaly = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "dur4_by_anomaly.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"anomaly", type text}, {"n", Int64.Type}, {"med", type number}, {"med_per_participant", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"anomaly", "n", "med", "med_per_participant"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

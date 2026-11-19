@@ -1,0 +1,49 @@
+table dur3_by_local_hour
+	lineageTag: 896269d3-7b97-ff57-b49d-5317a9ddce31
+
+	column TRANSACTION_TYPE_CODE
+		dataType: string
+		lineageTag: 91c8d796-76a3-2544-f4c9-50c162cf5987
+		summarizeBy: none
+		sourceColumn: TRANSACTION_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column local_hour
+		dataType: int64
+		lineageTag: 8e730d02-7b3a-d788-ca9b-43f26bf2f411
+		summarizeBy: none
+		sourceColumn: local_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: 0e9e890e-0681-dfc8-8722-bc1bfc929834
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column med
+		dataType: double
+		formatString: 0.0
+		lineageTag: 8d8a3616-ffa0-53a9-edcc-67af3c391f43
+		summarizeBy: sum
+		sourceColumn: med
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dur3_by_local_hour = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "dur3_by_local_hour.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"TRANSACTION_TYPE_CODE", type text}, {"local_hour", Int64.Type}, {"n", Int64.Type}, {"med", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"TRANSACTION_TYPE_CODE", "local_hour", "n", "med"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+
