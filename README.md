@@ -13,8 +13,8 @@ UMDAC/
 ├── notebooks/
 │   ├── 04_integration_validation.ipynb      RUN FIRST: shared load, QC issues log, rule validation   (Jia Yi)
 │   ├── 01_currency_payment_analysis.ipynb   currency, USD amount, business vs consumer             (Jia Yi)
-│   ├── 02_member2_analysis.ipynb            routing, duration, FX                                  (Member 2)
-│   └── 03_anomalies_accounts_details.ipynb  anomalies, accounts, party details and tokens          (Member 3)
+│   ├── 02_member2_analysis.ipynb            routing, duration, FX                                  (Wan Ning)
+│   └── 03_anomalies_accounts_details.ipynb  anomalies, accounts, party details and tokens          (Agnes)
 ├── outputs/
 │   ├── figures/      charts for dashboards and slides (PNG, named by rule / hypothesis ID)
 │   └── tables/       QC log, summary tables, hypotheses_03.csv, rules_log.csv (combined), evidence_matrix.csv,
