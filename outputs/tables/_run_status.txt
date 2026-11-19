@@ -40,3 +40,5 @@ rerun started Thu 11/19/2026 15:21:25.70
 running 04_integration_validation 
 done 04_integration_validation 
 RERUN DONE Thu 11/19/2026 15:23:16.70 
+rerun started Thu 11/19/2026 20:58:02.07 
+running 02_member2_analysis 
