@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "0 / 0",
+                    "value": "0",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "26pt",
@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "CEO scams from consumers / romance scams from businesses",
+                    "value": "R-BC4 exceptions: CEO scams from consumers, romance from businesses",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#3B3A39"

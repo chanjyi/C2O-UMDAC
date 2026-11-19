@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "USD amount: sender country × party types, log-normal noise",
+                    "value": "USD amount: sender country × party types, approximately log-normal noise",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "18pt"
@@ -37,7 +37,7 @@
                     }
                   },
                   {
-                    "value": "Amounts are log-normal given sender country and party types (skew -0.016, kurtosis 0.024, sd 2.08)",
+                    "value": "Amounts are approximately log-normal given sender country and party types (skew -0.016, kurtosis 0.024, sd 2.08)",
                     "textStyle": {
                       "fontSize": "11pt"
                     }

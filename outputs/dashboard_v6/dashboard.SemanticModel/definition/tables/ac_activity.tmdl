@@ -1,0 +1,35 @@
+table ac_activity
+	lineageTag: 66bac153-3735-7084-7da2-5691e957c87f
+
+	column account
+		dataType: string
+		lineageTag: c908939d-156f-e584-48cc-938f7a3925ba
+		summarizeBy: none
+		sourceColumn: account
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_payments
+		dataType: double
+		formatString: 0.0
+		lineageTag: d89f48db-ea30-6936-6b26-d046208d25f0
+		summarizeBy: sum
+		sourceColumn: mean_payments
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ac_activity = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ac_activity.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"role", "typ", "mean_payments"}, MissingField.UseNull),
+				    Labelled = Table.AddColumn(Selected, "account", each (if [role] = "ordering" then "Sender " else "Receiver ") & (if [typ] = "B" then "business" else "consumer"), type text),
+				    Typed = Table.TransformColumnTypes(Labelled, {{"account", type text}, {"mean_payments", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"account", "mean_payments"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

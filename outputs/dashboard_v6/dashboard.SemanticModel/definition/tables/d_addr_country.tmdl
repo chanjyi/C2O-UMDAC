@@ -1,0 +1,35 @@
+table d_addr_country
+	lineageTag: 25e68910-5b98-c152-bff0-06d10ec82e92
+
+	column party
+		dataType: string
+		lineageTag: d1b8df96-81ae-3a4b-b51b-8cadc1cd890f
+		summarizeBy: none
+		sourceColumn: party
+
+		annotation SummarizationSetBy = Automatic
+
+	column addr_country_eq_bank
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 67a8ffb5-f8a7-60c0-62c1-685ab5492579
+		summarizeBy: sum
+		sourceColumn: addr_country_eq_bank
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_addr_country = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "d_details_profile.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"side", "typ", "addr_country_eq_bank"}, MissingField.UseNull),
+				    Party = Table.AddColumn(Selected, "party", each (if [side] = "ordering" then "Sender " else "Receiver ") & (if [typ] = "B" then "business" else "consumer"), type text),
+				    Typed = Table.TransformColumnTypes(Party, {{"party", type text}, {"addr_country_eq_bank", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"party", "addr_country_eq_bank"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

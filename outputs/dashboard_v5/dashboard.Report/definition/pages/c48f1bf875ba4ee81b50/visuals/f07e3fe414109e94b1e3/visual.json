@@ -30,7 +30,7 @@
        {
         "textRuns": [
          {
-          "value": "Full statement of every rule with its final verdict and causal status. Statistics, holdout checks and practical meaning: FINDINGS.md / evidence_matrix.csv.",
+          "value": "Complete rule statements with final verdict and causal status. Key results and supporting charts for each feature group are on pp.2–11; further validation details are in FINDINGS.md.",
           "textStyle": {
            "fontSize": "11pt"
           }

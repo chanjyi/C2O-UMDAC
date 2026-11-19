@@ -1,0 +1,100 @@
+table a_detector_performance
+	lineageTag: f26b9028-9a35-1195-1907-28bfe7716411
+
+	column detector
+		dataType: string
+		lineageTag: a535c41f-81c6-e80c-59ca-2f8e35d8eb7e
+		summarizeBy: none
+		sourceColumn: detector
+
+		annotation SummarizationSetBy = Automatic
+
+	column rule
+		dataType: string
+		lineageTag: ab17aff5-3b35-0b1a-60e9-3de80c0abb85
+		summarizeBy: none
+		sourceColumn: rule
+
+		annotation SummarizationSetBy = Automatic
+
+	column validation_scope
+		dataType: string
+		lineageTag: 292c3f8d-0d97-7c3a-e912-14fdd6111822
+		summarizeBy: none
+		sourceColumn: validation_scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column alerts
+		dataType: int64
+		lineageTag: 0e6b71ac-7d2b-3bcd-5fe2-cdc6ac088bda
+		summarizeBy: sum
+		sourceColumn: alerts
+
+		annotation SummarizationSetBy = Automatic
+
+	column true_alerts
+		dataType: int64
+		lineageTag: e620062b-f08d-be75-c8de-1c1853d34c50
+		summarizeBy: sum
+		sourceColumn: true_alerts
+
+		annotation SummarizationSetBy = Automatic
+
+	column precision
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 329a2088-d0f2-ebad-a3a0-d75e0f15052d
+		summarizeBy: sum
+		sourceColumn: precision
+
+		annotation SummarizationSetBy = Automatic
+
+	column precision_ci
+		dataType: string
+		lineageTag: 7a7f8090-4339-08ff-9265-6e3bc73d78be
+		summarizeBy: none
+		sourceColumn: precision_ci
+
+		annotation SummarizationSetBy = Automatic
+
+	column recall
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 74d4c0c3-a156-0afd-4599-0dcdcfdbb94d
+		summarizeBy: sum
+		sourceColumn: recall
+
+		annotation SummarizationSetBy = Automatic
+
+	column recall_ci
+		dataType: string
+		lineageTag: a7e5971c-b221-bf91-fb6b-5f31350a9fa8
+		summarizeBy: none
+		sourceColumn: recall_ci
+
+		annotation SummarizationSetBy = Automatic
+
+	column alerts_per_10k
+		dataType: double
+		formatString: 0.0
+		lineageTag: 93315d86-1168-c7d5-2c82-3f417ee98a8f
+		summarizeBy: sum
+		sourceColumn: alerts_per_10k
+
+		annotation SummarizationSetBy = Automatic
+
+	partition a_detector_performance = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "a_detector_performance.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"detector", "rule", "validation_scope", "alerts", "true_alerts", "precision", "precision_ci", "recall", "recall_ci", "alerts_per_10k"}, MissingField.UseNull),
+				    Typed = Table.TransformColumnTypes(Selected, {{"detector", type text}, {"rule", type text}, {"validation_scope", type text}, {"alerts", Int64.Type}, {"true_alerts", Int64.Type}, {"precision", type number}, {"precision_ci", type text}, {"recall", type number}, {"recall_ci", type text}, {"alerts_per_10k", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"detector", "rule", "validation_scope", "alerts", "true_alerts", "precision", "precision_ci", "recall", "recall_ci", "alerts_per_10k"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

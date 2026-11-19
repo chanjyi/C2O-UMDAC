@@ -1,0 +1,44 @@
+table bc2_hour_profile
+	lineageTag: 440d0ace-b849-4cd7-4046-118d32e29c14
+
+	column local_hour
+		dataType: int64
+		lineageTag: 2210ed69-28bc-3cb8-0089-c6b6ef9c7fc2
+		summarizeBy: none
+		sourceColumn: local_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column clock
+		dataType: string
+		lineageTag: c94eca91-5e5b-8c44-b85d-8610ed5fc756
+		summarizeBy: none
+		sourceColumn: clock
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: dd3a246c-f637-a5f6-a7ab-40e1bda4fc8c
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bc2_hour_profile = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "bc2_hour_profile.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Unpivoted = Table.UnpivotOtherColumns(Promoted, {"lh"}, "clock", "pct"),
+				    Scaled = Table.AddColumn(Table.RenameColumns(Unpivoted, {{"lh", "local_hour"}}), "share", each Number.FromText([pct], "en-US") / 100, type number),
+				    Named = Table.TransformColumns(Table.RemoveColumns(Scaled, {"pct"}), {{"clock", each if _ = "B" then "Business senders, inferred local clock" else if _ = "C" then "Consumer senders, inferred local clock" else "All senders, UTC clock", type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"local_hour", Int64.Type}, {"clock", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"local_hour", "clock", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

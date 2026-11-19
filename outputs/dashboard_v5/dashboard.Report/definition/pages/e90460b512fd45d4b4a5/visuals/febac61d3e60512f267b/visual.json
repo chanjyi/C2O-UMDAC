@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "of USD value comes from B2B (23% of payments)",
+                    "value": "of normal-payment USD value is B2B (23% of payments)",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#3B3A39"

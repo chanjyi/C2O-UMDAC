@@ -112,7 +112,7 @@
                     }
                   },
                   {
-                    "value": "Sender address country = sender bank country; the receiver's usually differs. The trailing filler line carries no anomaly signal",
+                    "value": "Sender address country = sender bank country; the receiver's usually differs. No meaningful filler-line difference between anomaly types and normal payments was detected (gaps ≤ 3.3 points; small effects cannot be excluded)",
                     "textStyle": {
                       "fontSize": "11pt"
                     }

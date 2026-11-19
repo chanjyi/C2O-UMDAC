@@ -1,111 +1,111 @@
 {
- "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
- "name": "1d1d67f50aa9c12a95dc",
- "position": {
-  "x": 60,
-  "y": 176,
-  "z": 10,
-  "width": 435,
-  "height": 108,
-  "tabOrder": 10
- },
- "visual": {
-  "visualType": "textbox",
-  "objects": {
-   "general": [
-    {
-     "properties": {
-      "paragraphs": [
-       {
-        "textRuns": [
-         {
-          "value": "39 s → 281 s",
-          "textStyle": {
-           "fontWeight": "bold",
-           "fontSize": "26pt",
-           "color": "#1F4E79"
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1d1d67f50aa9c12a95dc",
+  "position": {
+    "x": 60,
+    "y": 176,
+    "z": 10,
+    "width": 435,
+    "height": 108,
+    "tabOrder": 10
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "39 s → 281 s",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "26pt",
+                      "color": "#1F4E79"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "median: Direct → Indirect (all Indirect paths); Covered 383 s",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#3B3A39"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
           }
-         }
-        ],
-        "horizontalTextAlignment": "center"
-       },
-       {
-        "textRuns": [
-         {
-          "value": "median: Direct → Indirect (all Indirect paths); Covered 383 s",
-          "textStyle": {
-           "fontSize": "11pt",
-           "color": "#3B3A39"
-          }
-         }
-        ],
-        "horizontalTextAlignment": "center"
-       }
+        }
       ]
-     }
-    }
-   ]
-  },
-  "visualContainerObjects": {
-   "border": [
-    {
-     "properties": {
-      "show": {
-       "expr": {
-        "Literal": {
-         "Value": "true"
-        }
-       }
-      },
-      "width": {
-       "expr": {
-        "Literal": {
-         "Value": "1D"
-        }
-       }
-      },
-      "radius": {
-       "expr": {
-        "Literal": {
-         "Value": "8D"
-        }
-       }
-      }
-     }
-    }
-   ],
-   "background": [
-    {
-     "properties": {
-      "show": {
-       "expr": {
-        "Literal": {
-         "Value": "true"
-        }
-       }
-      },
-      "color": {
-       "solid": {
-        "color": {
-         "expr": {
-          "Literal": {
-           "Value": "'#EEF3F8'"
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
           }
-         }
         }
-       }
-      },
-      "transparency": {
-       "expr": {
-        "Literal": {
-         "Value": "0D"
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EEF3F8'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
         }
-       }
-      }
-     }
-    }
-   ]
-  },
-  "drillFilterOtherVisuals": true
- }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

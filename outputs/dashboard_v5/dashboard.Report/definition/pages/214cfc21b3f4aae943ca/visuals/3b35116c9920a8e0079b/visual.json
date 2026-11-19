@@ -1,116 +1,116 @@
 {
- "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
- "name": "3b35116c9920a8e0079b",
- "position": {
-  "x": 60,
-  "y": 16,
-  "width": 1800,
-  "height": 150,
-  "z": 0,
-  "tabOrder": 0
- },
- "visual": {
-  "visualType": "textbox",
-  "objects": {
-   "general": [
-    {
-     "properties": {
-      "paragraphs": [
-       {
-        "textRuns": [
-         {
-          "value": "Anomalies: how well simple rules flag each label (exploratory, in-sample)",
-          "textStyle": {
-           "fontWeight": "bold",
-           "fontSize": "18pt"
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "3b35116c9920a8e0079b",
+  "position": {
+    "x": 60,
+    "y": 16,
+    "width": 1800,
+    "height": 150,
+    "z": 0,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Anomalies: how well simple rules flag each label (exploratory, in-sample)",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Scope   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Each detector is a label-free rule built from the signatures on the previous page and scored on the same data. Precision and recall are in-sample and exploratory, NOT holdout performance.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Reading   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Only the romance rules are precise (precision up to 94.4%). Duplicate rules find up to 70.7% of copies, but at most 17.0% of their alerts are labelled duplicates. Fat-finger and CEO rules flag mostly normal payments (precision ≤ 1.4%), because normal amounts vary widely and most business payments go to new payees.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Use   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Signatures are evidence for the generator rules (A1–A4), not a production fraud model.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              }
+            ]
           }
-         }
-        ]
-       },
-       {
-        "textRuns": [
-         {
-          "value": "Scope   ",
-          "textStyle": {
-           "fontWeight": "bold",
-           "fontSize": "11pt"
-          }
-         },
-         {
-          "value": "Each detector is a label-free rule built from the signatures on the previous page and scored on the same data. Precision and recall are in-sample and exploratory, NOT holdout performance.",
-          "textStyle": {
-           "fontSize": "11pt"
-          }
-         }
-        ]
-       },
-       {
-        "textRuns": [
-         {
-          "value": "Reading   ",
-          "textStyle": {
-           "fontWeight": "bold",
-           "fontSize": "11pt"
-          }
-         },
-         {
-          "value": "Only the romance rules are precise (precision up to 94.4%). Duplicate rules find up to 70.7% of copies, but at most 17.0% of their alerts are labelled duplicates. Fat-finger and CEO rules flag mostly normal payments (precision ≤ 1.4%), because normal amounts vary widely and most business payments go to new payees.",
-          "textStyle": {
-           "fontSize": "11pt"
-          }
-         }
-        ]
-       },
-       {
-        "textRuns": [
-         {
-          "value": "Use   ",
-          "textStyle": {
-           "fontWeight": "bold",
-           "fontSize": "11pt"
-          }
-         },
-         {
-          "value": "Signatures are evidence for the generator rules (A1–A4), not a production fraud model.",
-          "textStyle": {
-           "fontSize": "11pt"
-          }
-         }
-        ]
-       }
+        }
       ]
-     }
-    }
-   ]
-  },
-  "visualContainerObjects": {
-   "border": [
-    {
-     "properties": {
-      "show": {
-       "expr": {
-        "Literal": {
-         "Value": "false"
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
-       }
-      }
-     }
-    }
-   ],
-   "background": [
-    {
-     "properties": {
-      "show": {
-       "expr": {
-        "Literal": {
-         "Value": "false"
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
-       }
-      }
-     }
-    }
-   ]
-  },
-  "drillFilterOtherVisuals": true
- }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

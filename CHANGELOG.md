@@ -1,5 +1,89 @@
 # Changelog
 
+## 19 November 2026, 20:22: three minor dashboard display fixes (no numbers changed)
+- p.9 share-of-USD chart: 4 decimals, so tiny shares no longer read as 0.00% (e.g. romance 0.0005%, recall 0.0032%).
+- p.11 D1: chart says "of lines" with axis "individual details line (10% row sample)"; the 99.92% tile now says
+  "complete details texts ... (full data, lowest side x type)", so the two units are clearly different.
+- p.11 D3 widened (top row 560 / 540 / 660 px) so the 9.15% and 9.34% labels show again.
+- Exported to outputs/C2O_Dashboard.pdf (the team's file name; replaces the 19:42 copy) and outputs/dashboard.pbix.
+
+## 19 November 2026, 19:45: one direct chart per rule (dashboard; no notebook or rule change)
+- Submission asks for charts showing how each rule appears in the data. Five rules had only a number, now each has a chart:
+  p.3 R-AMT1 ln-amount residuals vs a normal curve (replaces the B2B value-share chart; the 73% tile stays);
+  p.8 A2 bursts by copies per burst (185 bursts of 2-5) and A3 romance vs normal C2C pairs (rising 98.8% vs 50.4%,
+  within one day 100% vs 0.1%) (replace the money-share chart, moved to p.9, and the R-DUR3 repeat, still on p.6);
+  p.10 AC2 currency code = local currency 99.6% (13.3% of non-IBAN numbers carry a code); p.11 D1 line-length histogram.
+- New evidence script outputs/audit/dashboard_evidence.py writes outputs/tables/ev_amt1_residuals.csv, ev_amt1_summary.csv
+  and ev_a2_burst_sizes.csv with the notebooks' definitions; it reproduces skew -0.016, kurtosis 0.024, sd 2.08 and
+  185 bursts / 679 copies exactly. The other three charts use existing notebook tables.
+- New project folder outputs/dashboard_v6 (supersedes dashboard_v5). Refreshed, saved, exported to outputs/dashboard.pdf
+  (13 pages) and outputs/dashboard.pbix. Also: D2 legend "Neither format (residual)"; appendix subtitle reworded.
+
+## 19 November 2026, 18:45: review round 6 (wording and one worked example; no numbers changed)
+- Dashboard pp.12-13: appendix subtitle now points to the topic pages (every one of the 45 rule IDs appears with its result on
+  pp.2-11) instead of only to FINDINGS.md / evidence_matrix.csv, so the PDF can be judged on its own. Refreshed before export.
+- Slide 5 (Method): worked example of a control removing a false pattern (cross-border x0.62 raw -> x1.00 within the same
+  sender country, rejected).
+- Slide 14: card is "Monitoring relevance (in-sample only)", text starts "Exploratory, on artificial labels".
+- Slides 15-16: one data-based relevance line each (IBAN/BIC always agree, so a mismatch is a data-quality check; only 20-21%
+  of party texts follow a parseable layout).
+- Checked, not changed: slide 19 references (~10.5 pt at A4) and dashboard appendix text (~11 pt at 100% zoom) are readable;
+  a larger appendix font would risk scrollbars that cut rows in the PDF.
+
+## 19 November 2026, 18:21: slide 7 rejection test (new audit check; no notebook or dashboard change)
+- The 4.2% "Receiver local" class is exclusive (receiver's currency but not the sender's), so alone it cannot reject
+  "priced in the receiver's currency". New check outputs/audit/receiver_currency_check.py (20% sample, same local-currency
+  definition as notebook 01): sender and receiver local currencies coincide in 15.5% of payments; where they differ (84.5%),
+  5.0% use the receiver's currency vs 88.5% the sender's and 92.7% the first bank's. Including the 15.5% overlap, 18.9%
+  match the receiver's currency. Slide 7 "Rejected alternative" now uses the 84.5% comparison.
+
+## 19 November 2026, 18:06: fix of a dashboard regression from the 17:40 export
+- Cause: the 17:37 PDF was exported from outputs/dashboard_v5 without Refresh, so Power BI used its cached data from 09:02.
+  Rule texts read from outputs/tables (evidence_matrix.csv, a_detector_performance.csv) fell back to the old wording:
+  R-BC1 "all 10M rows", R-RT5 "independently", R-DUR1 "set by routing", CEO detector "(payment held)", A2 "unlabelled original".
+- Fix: refreshed the project from outputs/tables, saved it (cache now current), re-exported outputs/dashboard.pdf and
+  outputs/dashboard.pbix. The PDF now equals the 15:39 version plus the intended round-3 edits only.
+- Also: p.1 tile "33 hold" -> "33 confirmed, strong or supported findings (12 · 3 · 18)"; p.2 R-CCY1 and slide 7 now define
+  4.2% as "receiver's local currency but not the sender's" (the exclusive category in ccy1_currency_choice.csv).
+- Rule for future exports: always press Refresh in Power BI before exporting the PDF.
+
+## 19 November 2026, 17:40: third review round (wording and business relevance; every value, verdict and statistic unchanged)
+- Dashboard p.4: R-BC4 tile "0 / 0" (looked like a ratio) -> "0" with "R-BC4 exceptions: CEO scams from consumers, romance
+  from businesses". p.5: "5% per link" -> "~5% per link", labelled as a fitted model. Re-exported outputs/dashboard.pdf
+  (13 pages) and outputs/dashboard.pbix from outputs/dashboard_v5.
+- Slides: cover says domestic AND cross-border payments; answer slide scopes 100% to 1.85M sampled complete paths; data prep
+  says no payment ROWS were deleted (DISCLAIMER column dropped); currency chart labels are marked as separate, overlapping
+  measures; B2B 73% is "among normal payments" and "payroll" removed; end-of-day batching and "correspondents book funds"
+  are no longer stated as observed; 79-80% party texts "match neither format" (residual); generator gap rate is a fitted model.
+- Business relevance added without outcome claims: amount (segment-specific baselines), routing (route complexity),
+  duration (time expectations, R2 only 0.046), FX (full path 97.8% -> 100%; Swift 2025b on payment investigations),
+  anomalies (in-sample alert volume vs precision), generator summary line. No external statistics enter any calculation.
+- References: added Swift (2025b) It's time to transform exceptions and investigations; IBAN registry is now Swift (2025a).
+
+## 19 November 2026, 15:30: second review round (wording only; every value, verdict and statistic unchanged)
+- Rule texts corrected in the notebooks and regenerated (rerun 02, 03, 04 at 15:04-15:23; evidence_matrix values identical):
+  R-BC1 "all 10M rows" -> "all 9,992,994 normal payments" (04); R-RT5 now says the gap frequencies are CONSISTENT WITH an
+  independent 5%-per-link model (02); R-DUR1 "duration is set by routing / every bank adds time" -> "median duration rises with
+  routing type and every extra bank" (02); A2 "no unlabelled original" -> "no excess beyond chance" (03); detector label
+  "(payment held)" removed (03).
+- Dashboard: p.2 currency exceptions (paths starting elsewhere explain part; 6.6% unexplained), p.6 title and R-DUR1 line,
+  p.8 "Money at risk" -> "Share of payments vs share of USD value, by anomaly type", A2 wording.
+- Slides 11, 12, 14: "opposite of real practice" softened; duration no longer causal; "fraud type" -> "anomaly type";
+  duplicate wording; speaker note on controls.
+- rerun_04_only.bat and rerun_02_03_04.bat now force the Anaconda "python3" kernel (an editor had saved kernel
+  "cds6314", which has no duckdb, into notebook 04, so the rerun failed with "No module named duckdb").
+
+## 19 November 2026, 14:10: review fixes (wording and layout; no numbers changed)
+- Dashboard p.1: rules are tested on the full data OR a 20% sample; 28 of 45 have a time-split holdout (it said every rule had one).
+- p.3: amounts are "approximately" log-normal; B2B 73% is labelled as normal payments (20% sample, anomalies excluded);
+  bottom charts made taller so all 10 factors and all 14 countries show (they had scrollbars in the PDF).
+- p.4 / p.5 titles no longer claim independence (association negligible; mechanism not proven).
+- p.8: CUSTOMER_RECALL = 314 of 317 with no matching earlier payment (3 do match); romance 98.8% vs 50.4% rising shown.
+- p.10: AC1 adds IBAN characters 5-8 = BIC characters 1-4 (100% in all 76 IBAN countries).
+- p.11: filler line = no meaningful difference detected (gaps <= 3.3 points), not "no signal".
+- Slides: same corrections (cover, method p-value note, data-prep missing values, B/C and gap independence wording,
+  duration "negligible, not proven zero", screening as a possible reading, A5 marked Inconclusive on "What did not hold").
+
 ## 19 November 2026, 08:40-09:21: dashboard redesign (13 pages, outputs/dashboard_v5)
 - New Power BI project outputs/dashboard_v5/dashboard.pbip (supersedes outputs/dashboard_pbip); exported to
   outputs/dashboard.pdf (13 pages) and outputs/dashboard.pbix. Same tables and numbers; layout only, plus the fixes below.

@@ -1,109 +1,109 @@
 {
- "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
- "name": "fc6546a718c0de4a782d",
- "position": {
-  "x": 60,
-  "y": 16,
-  "width": 1800,
-  "height": 150,
-  "z": 0,
-  "tabOrder": 0
- },
- "visual": {
-  "visualType": "textbox",
-  "objects": {
-   "general": [
-    {
-     "properties": {
-      "paragraphs": [
-       {
-        "textRuns": [
-         {
-          "value": "C2O · Reverse-engineering the Swift payment generator: rule scorecard",
-          "textStyle": {
-           "fontWeight": "bold",
-           "fontSize": "18pt"
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "fc6546a718c0de4a782d",
+  "position": {
+    "x": 60,
+    "y": 16,
+    "width": 1800,
+    "height": 150,
+    "z": 0,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "C2O · Reverse-engineering the Swift payment generator: rule scorecard",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "45 rules and rejected hypotheses (full data or a 20% sample), each with a verdict and causal status; 28 also have a time-split holdout. Full table: Appendix A–B (pages 12–13) and FINDINGS.md.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Verdict   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "accuracy rules: Confirmed ≥99% of rows · Strong 95–99% · Partial 70–95% · Weak <70%;  effect rules: Supported (effect holds and an agreeing holdout) · Approximate · Rejected · Inconclusive",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Causal status   ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  },
+                  {
+                    "value": "Mechanism (consistent with a generator rule; CI, holdout, subgroup and practical evidence present) · Association (real pattern, cause not identified) · Structural (true by definition) · Unresolved. None of these proves the generator's code.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              }
+            ]
           }
-         }
-        ]
-       },
-       {
-        "textRuns": [
-         {
-          "value": "45 rules and rejected hypotheses from 10M payments, each with a verdict, a causal status and an out-of-sample check. The full rule table is in Appendix A–B (pages 12–13) and in FINDINGS.md.",
-          "textStyle": {
-           "fontSize": "11pt"
-          }
-         }
-        ]
-       },
-       {
-        "textRuns": [
-         {
-          "value": "Verdict   ",
-          "textStyle": {
-           "fontWeight": "bold",
-           "fontSize": "11pt"
-          }
-         },
-         {
-          "value": "accuracy rules: Confirmed ≥99% of rows · Strong 95–99% · Partial 70–95% · Weak <70%;  effect rules: Supported (effect holds and an agreeing holdout) · Approximate · Rejected · Inconclusive",
-          "textStyle": {
-           "fontSize": "11pt"
-          }
-         }
-        ]
-       },
-       {
-        "textRuns": [
-         {
-          "value": "Causal status   ",
-          "textStyle": {
-           "fontWeight": "bold",
-           "fontSize": "11pt"
-          }
-         },
-         {
-          "value": "Mechanism (consistent with a generator rule; CI, holdout, subgroup and practical evidence present) · Association (real pattern, cause not identified) · Structural (true by definition) · Unresolved. None of these proves the generator's code.",
-          "textStyle": {
-           "fontSize": "11pt"
-          }
-         }
-        ]
-       }
+        }
       ]
-     }
-    }
-   ]
-  },
-  "visualContainerObjects": {
-   "border": [
-    {
-     "properties": {
-      "show": {
-       "expr": {
-        "Literal": {
-         "Value": "false"
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
-       }
-      }
-     }
-    }
-   ],
-   "background": [
-    {
-     "properties": {
-      "show": {
-       "expr": {
-        "Literal": {
-         "Value": "false"
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
-       }
-      }
-     }
-    }
-   ]
-  },
-  "drillFilterOtherVisuals": true
- }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

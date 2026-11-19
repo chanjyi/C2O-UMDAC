@@ -1,0 +1,45 @@
+table a3_rising
+	lineageTag: 8a221ab6-9a92-9e70-9a15-49c11688563f
+
+	column measure
+		dataType: string
+		lineageTag: 43d2e78a-cbab-4d33-46db-4bbb3dabb2d4
+		summarizeBy: none
+		sourceColumn: measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column pairs
+		dataType: string
+		lineageTag: f41fa850-8396-2313-d821-d93c3aeff8f9
+		summarizeBy: none
+		sourceColumn: pairs
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 264dd3e2-cb4f-a008-3dec-8cb32239943d
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition a3_rising = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "a_significance_tests.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"test", "share", "control_share"}, MissingField.UseNull),
+				    Kept = Table.RenameColumns(Table.SelectRows(Selected, each Text.StartsWith([test], "A3")), {{"test", "measure"}, {"share", "romance"}, {"control_share", "control"}}),
+				    Unpivoted = Table.UnpivotOtherColumns(Kept, {"measure"}, "pairs", "share"),
+				    Named = Table.TransformColumns(Unpivoted, {{"measure", each if Text.Contains(_, "rise") then "Amounts rise over time" else "All payments within 1 day", type text}, {"pairs", each if _ = "romance" then "Romance-scam pairs" else "Normal C2C pairs (3+ payments)", type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"measure", type text}, {"pairs", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"measure", "pairs", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

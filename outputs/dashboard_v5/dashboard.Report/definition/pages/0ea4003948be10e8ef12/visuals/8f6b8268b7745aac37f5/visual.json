@@ -37,7 +37,7 @@
                     }
                   },
                   {
-                    "value": "Payment currency = local currency of the first bank on the path (93.4%; ordering bank alone 89.4%; receiver's currency only 4.2%)",
+                    "value": "Payment currency = local currency of the first bank on the path (93.4%; ordering bank alone 89.4%; receiver's local currency but not the sender's 4.2%)",
                     "textStyle": {
                       "fontSize": "11pt"
                     }
@@ -105,7 +105,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Local currency = most-used currency of senders in each BIC country (learned from the data, no currency table). Exceptions come from paths that start at another bank (R-RT2, R-FX3).",
+                    "value": "Local currency = most-used currency of senders in each BIC country (learned from the data, no currency table). Paths that start at another bank explain part of the ordering-bank exceptions (89.4% → 93.4%) and all R-CCY2 exceptions (R-RT2, R-FX3); 6.6% of currencies remain unexplained.",
                     "textStyle": {
                       "fontSize": "11pt"
                     }

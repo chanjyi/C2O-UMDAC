@@ -1,384 +1,384 @@
 {
- "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
- "name": "e6b4481600b8721f0117",
- "position": {
-  "x": 60,
-  "y": 126,
-  "width": 1800,
-  "height": 896,
-  "z": 1,
-  "tabOrder": 1
- },
- "visual": {
-  "visualType": "tableEx",
-  "query": {
-   "queryState": {
-    "Values": {
-     "projections": [
-      {
-       "field": {
-        "Column": {
-         "Expression": {
-          "SourceRef": {
-           "Entity": "evidence_matrix"
-          }
-         },
-         "Property": "id"
-        }
-       },
-       "queryRef": "evidence_matrix.id",
-       "nativeQueryRef": "ID",
-       "displayName": "ID"
-      },
-      {
-       "field": {
-        "Column": {
-         "Expression": {
-          "SourceRef": {
-           "Entity": "evidence_matrix"
-          }
-         },
-         "Property": "group"
-        }
-       },
-       "queryRef": "evidence_matrix.group",
-       "nativeQueryRef": "Group",
-       "displayName": "Group"
-      },
-      {
-       "field": {
-        "Column": {
-         "Expression": {
-          "SourceRef": {
-           "Entity": "evidence_matrix"
-          }
-         },
-         "Property": "rule"
-        }
-       },
-       "queryRef": "evidence_matrix.rule",
-       "nativeQueryRef": "Rule (WHEN ... THEN ...)",
-       "displayName": "Rule (WHEN ... THEN ...)"
-      },
-      {
-       "field": {
-        "Column": {
-         "Expression": {
-          "SourceRef": {
-           "Entity": "evidence_matrix"
-          }
-         },
-         "Property": "final_verdict"
-        }
-       },
-       "queryRef": "evidence_matrix.final_verdict",
-       "nativeQueryRef": "Verdict",
-       "displayName": "Verdict"
-      },
-      {
-       "field": {
-        "Column": {
-         "Expression": {
-          "SourceRef": {
-           "Entity": "evidence_matrix"
-          }
-         },
-         "Property": "causal_status"
-        }
-       },
-       "queryRef": "evidence_matrix.causal_status",
-       "nativeQueryRef": "Causal status",
-       "displayName": "Causal status"
-      }
-     ]
-    }
-   },
-   "sortDefinition": {
-    "sort": [
-     {
-      "field": {
-       "Column": {
-        "Expression": {
-         "SourceRef": {
-          "Entity": "evidence_matrix"
-         }
-        },
-        "Property": "id"
-       }
-      },
-      "direction": "Ascending"
-     }
-    ]
-   }
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "e6b4481600b8721f0117",
+  "position": {
+    "x": 60,
+    "y": 126,
+    "width": 1800,
+    "height": 896,
+    "z": 1,
+    "tabOrder": 1
   },
-  "objects": {
-   "values": [
-    {
-     "properties": {
-      "fontSize": {
-       "expr": {
-        "Literal": {
-         "Value": "11D"
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evidence_matrix"
+                    }
+                  },
+                  "Property": "id"
+                }
+              },
+              "queryRef": "evidence_matrix.id",
+              "nativeQueryRef": "ID",
+              "displayName": "ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evidence_matrix"
+                    }
+                  },
+                  "Property": "group"
+                }
+              },
+              "queryRef": "evidence_matrix.group",
+              "nativeQueryRef": "Group",
+              "displayName": "Group"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evidence_matrix"
+                    }
+                  },
+                  "Property": "rule"
+                }
+              },
+              "queryRef": "evidence_matrix.rule",
+              "nativeQueryRef": "Rule (WHEN ... THEN ...)",
+              "displayName": "Rule (WHEN ... THEN ...)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evidence_matrix"
+                    }
+                  },
+                  "Property": "final_verdict"
+                }
+              },
+              "queryRef": "evidence_matrix.final_verdict",
+              "nativeQueryRef": "Verdict",
+              "displayName": "Verdict"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evidence_matrix"
+                    }
+                  },
+                  "Property": "causal_status"
+                }
+              },
+              "queryRef": "evidence_matrix.causal_status",
+              "nativeQueryRef": "Causal status",
+              "displayName": "Causal status"
+            }
+          ]
         }
-       }
       },
-      "wordWrap": {
-       "expr": {
-        "Literal": {
-         "Value": "true"
-        }
-       }
-      }
-     }
-    }
-   ],
-   "columnHeaders": [
-    {
-     "properties": {
-      "fontSize": {
-       "expr": {
-        "Literal": {
-         "Value": "11D"
-        }
-       }
-      },
-      "wordWrap": {
-       "expr": {
-        "Literal": {
-         "Value": "true"
-        }
-       }
-      }
-     }
-    }
-   ],
-   "columnWidth": [
-    {
-     "properties": {
-      "value": {
-       "expr": {
-        "Literal": {
-         "Value": "90D"
-        }
-       }
-      }
-     },
-     "selector": {
-      "metadata": "evidence_matrix.id"
-     }
-    },
-    {
-     "properties": {
-      "value": {
-       "expr": {
-        "Literal": {
-         "Value": "160D"
-        }
-       }
-      }
-     },
-     "selector": {
-      "metadata": "evidence_matrix.group"
-     }
-    },
-    {
-     "properties": {
-      "value": {
-       "expr": {
-        "Literal": {
-         "Value": "1140D"
-        }
-       }
-      }
-     },
-     "selector": {
-      "metadata": "evidence_matrix.rule"
-     }
-    },
-    {
-     "properties": {
-      "value": {
-       "expr": {
-        "Literal": {
-         "Value": "130D"
-        }
-       }
-      }
-     },
-     "selector": {
-      "metadata": "evidence_matrix.final_verdict"
-     }
-    },
-    {
-     "properties": {
-      "value": {
-       "expr": {
-        "Literal": {
-         "Value": "140D"
-        }
-       }
-      }
-     },
-     "selector": {
-      "metadata": "evidence_matrix.causal_status"
-     }
-    }
-   ]
-  },
-  "visualContainerObjects": {
-   "title": [
-    {
-     "properties": {
-      "text": {
-       "expr": {
-        "Literal": {
-         "Value": "'Currency · Amount · Business/consumer · Routing · Duration'"
-        }
-       }
-      },
-      "fontSize": {
-       "expr": {
-        "Literal": {
-         "Value": "12D"
-        }
-       }
-      },
-      "bold": {
-       "expr": {
-        "Literal": {
-         "Value": "true"
-        }
-       }
-      }
-     }
-    }
-   ],
-   "subTitle": [
-    {
-     "properties": {
-      "show": {
-       "expr": {
-        "Literal": {
-         "Value": "false"
-        }
-       }
-      }
-     }
-    }
-   ],
-   "border": [
-    {
-     "properties": {
-      "show": {
-       "expr": {
-        "Literal": {
-         "Value": "true"
-        }
-       }
-      },
-      "width": {
-       "expr": {
-        "Literal": {
-         "Value": "2D"
-        }
-       }
-      },
-      "radius": {
-       "expr": {
-        "Literal": {
-         "Value": "8D"
-        }
-       }
-      }
-     }
-    }
-   ]
-  },
-  "drillFilterOtherVisuals": true
- },
- "filterConfig": {
-  "filters": [
-   {
-    "name": "fb678488fc69a7319a7b",
-    "field": {
-     "Column": {
-      "Expression": {
-       "SourceRef": {
-        "Entity": "evidence_matrix"
-       }
-      },
-      "Property": "group"
-     }
-    },
-    "type": "Categorical",
-    "filter": {
-     "Version": 2,
-     "From": [
-      {
-       "Name": "f",
-       "Entity": "evidence_matrix",
-       "Type": 0
-      }
-     ],
-     "Where": [
-      {
-       "Condition": {
-        "In": {
-         "Expressions": [
+      "sortDefinition": {
+        "sort": [
           {
-           "Column": {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "evidence_matrix"
+                  }
+                },
+                "Property": "id"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "evidence_matrix.id"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "evidence_matrix.group"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "1140D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "evidence_matrix.rule"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "evidence_matrix.final_verdict"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "140D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "evidence_matrix.causal_status"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Currency · Amount · Business/consumer · Routing · Duration'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fb678488fc69a7319a7b",
+        "field": {
+          "Column": {
             "Expression": {
-             "SourceRef": {
-              "Source": "f"
-             }
+              "SourceRef": {
+                "Entity": "evidence_matrix"
+              }
             },
             "Property": "group"
-           }
           }
-         ],
-         "Values": [
-          [
-           {
-            "Literal": {
-             "Value": "'Currency'"
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "evidence_matrix",
+              "Type": 0
             }
-           }
           ],
-          [
-           {
-            "Literal": {
-             "Value": "'Amount'"
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "group"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Currency'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Amount'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Business/consumer'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Routing'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Duration'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
             }
-           }
-          ],
-          [
-           {
-            "Literal": {
-             "Value": "'Business/consumer'"
-            }
-           }
-          ],
-          [
-           {
-            "Literal": {
-             "Value": "'Routing'"
-            }
-           }
-          ],
-          [
-           {
-            "Literal": {
-             "Value": "'Duration'"
-            }
-           }
           ]
-         ]
         }
-       }
       }
-     ]
-    }
-   }
-  ]
- }
+    ]
+  }
 }

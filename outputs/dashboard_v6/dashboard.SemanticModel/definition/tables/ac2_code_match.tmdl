@@ -1,0 +1,36 @@
+table ac2_code_match
+	lineageTag: 0d275c9a-9a5b-ae7f-a58c-0f18a97b9eef
+
+	column code
+		dataType: string
+		lineageTag: 4d5b9ca4-1ca2-2ac2-0a11-b94620bc42bd
+		summarizeBy: none
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 780ea5ba-6179-6207-6fb6-913b87d91284
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ac2_code_match = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ac_currency_in_account.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"code_equals_local_ccy"}, MissingField.UseNull),
+				    Num = Table.TransformColumnTypes(Selected, {{"code_equals_local_ccy", type number}}, "en-US"),
+				    Rows = Table.FromRecords({[code = "Code = bank country's local currency", share = Num{0}[code_equals_local_ccy]], [code = "Code = another currency", share = 1 - Num{0}[code_equals_local_ccy]]}),
+				    Typed = Table.TransformColumnTypes(Rows, {{"code", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"code", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

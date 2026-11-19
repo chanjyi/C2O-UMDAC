@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Business vs consumer: independent types, different activity, one timing",
+                    "value": "Business vs consumer: no detectable type link, different activity, shared timing",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "18pt"
@@ -62,7 +62,7 @@
                     }
                   },
                   {
-                    "value": "Sender and receiver party types have a negligible association on all 10M rows (V = 0.0010; P(receiver B) 28.84% for B vs 28.73% for C senders; p = 0.003 naive, 0.595 account-clustered); consistent with independent assignment, not proof of it",
+                    "value": "Sender and receiver party types have a negligible association on all 9.99M normal rows (V = 0.0010; P(receiver B) 28.84% for B vs 28.73% for C senders; p = 0.003 naive, 0.595 account-clustered); consistent with independent assignment, not proof of it",
                     "textStyle": {
                       "fontSize": "11pt"
                     }

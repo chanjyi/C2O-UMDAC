@@ -37,7 +37,7 @@
                     }
                   },
                   {
-                    "value": "IBAN is used for every account of a bank country or for none (76 all-IBAN, 153 none, 0 mixed); IBAN country = BIC country",
+                    "value": "IBAN is used for every account of a bank country or for none (76 all-IBAN, 153 none, 0 mixed); IBAN country = BIC country; IBAN characters 5–8 = BIC characters 1–4 (100.0% in every IBAN country)",
                     "textStyle": {
                       "fontSize": "11pt"
                     }

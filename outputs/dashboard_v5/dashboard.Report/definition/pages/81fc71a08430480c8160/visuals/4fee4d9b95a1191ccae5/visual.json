@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Duration: every extra bank adds processing time",
+                    "value": "Duration: median processing time rises with every extra bank",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "18pt"
@@ -37,7 +37,7 @@
                     }
                   },
                   {
-                    "value": "Duration is set by routing: Direct 39 s < Indirect 281 s < Covered 383 s (median), and every extra bank adds time",
+                    "value": "Median duration rises with routing type (Direct 39 s < Indirect 281 s < Covered 383 s) and with every extra bank on the path",
                     "textStyle": {
                       "fontSize": "11pt"
                     }

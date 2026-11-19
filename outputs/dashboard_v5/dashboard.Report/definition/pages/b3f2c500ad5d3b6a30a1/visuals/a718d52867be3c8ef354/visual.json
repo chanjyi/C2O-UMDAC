@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "5% per link",
+                    "value": "≈5% per link",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "26pt",
@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "chance of a \"...\" gap; fits every path length (p = 0.10)",
+                    "value": "fitted model: chance of a \"...\" gap; fits every path length (p = 0.10)",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#3B3A39"

@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "rules and hypotheses tested on 10M payments",
+                    "value": "rules and hypotheses tested (full data or 20% sample)",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#3B3A39"

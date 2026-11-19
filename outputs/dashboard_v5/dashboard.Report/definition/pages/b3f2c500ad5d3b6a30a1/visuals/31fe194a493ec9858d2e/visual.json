@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Routing: hop count is geometric and independent of who pays whom",
+                    "value": "Routing: hop count is geometric and barely depends on who pays whom",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "18pt"

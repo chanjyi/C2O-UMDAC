@@ -130,6 +130,27 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "evidence_matrix.rule": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "evidence_matrix",
+			          "ConceptualProperty": "rule"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rule (WHEN ... THEN ...)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}

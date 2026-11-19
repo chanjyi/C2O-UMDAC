@@ -1,0 +1,44 @@
+table d1_line_length
+	lineageTag: f2a6d879-6e24-bc18-cb91-914ed21be4cf
+
+	column line_len
+		dataType: int64
+		lineageTag: 077d290a-e3c1-1e05-f4d5-bf193f5cf124
+		summarizeBy: none
+		sourceColumn: line_len
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: 884d3921-5684-63c0-2ce8-f922ef0c047a
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ab4dfcc8-2784-f593-505f-aa37f5162bfe
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d1_line_length = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "d_line_length_hist_sample10.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Num = Table.TransformColumnTypes(Promoted, {{"n", type number}, {"line_len", Int64.Type}}, "en-US"),
+				    Total = List.Sum(Num[n]),
+				    Shares = Table.AddColumn(Num, "share", each [n] / Total, type number),
+				    Typed = Table.TransformColumnTypes(Shares, {{"line_len", Int64.Type}, {"n", Int64.Type}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"line_len", "n", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

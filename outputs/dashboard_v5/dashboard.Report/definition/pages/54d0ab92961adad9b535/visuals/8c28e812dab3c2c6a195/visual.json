@@ -135,7 +135,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Money at risk: share of rows vs share of USD value'"
+                  "Value": "'Share of payments vs share of USD value, by anomaly type (artificial data)'"
                 }
               }
             },

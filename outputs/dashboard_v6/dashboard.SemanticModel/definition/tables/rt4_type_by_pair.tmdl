@@ -1,0 +1,52 @@
+table rt4_type_by_pair
+	lineageTag: 5dc322a0-3824-1e5b-53d4-9cb7df08fcff
+
+	column grp
+		dataType: string
+		lineageTag: a3459cc4-a86a-a348-46fa-5e5a98c78191
+		summarizeBy: none
+		sourceColumn: grp
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: ba518850-00f4-63fb-363d-3b32f2a8c54c
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_TYPE_CODE
+		dataType: string
+		lineageTag: 965ceae9-17e0-5e47-7469-b256dce5944d
+		summarizeBy: none
+		sourceColumn: TRANSACTION_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 33bab474-f7d3-19e8-f97c-d2b34cb05a37
+		summarizeBy: sum
+		sourceColumn: pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition rt4_type_by_pair = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "rt4_type_by_pair.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Labelled = Promoted,
+				    NumN = Table.TransformColumnTypes(Labelled, {{"n", Int64.Type}}, "en-US"),
+				    Unpivoted = Table.UnpivotOtherColumns(NumN, {"grp", "n"}, "TRANSACTION_TYPE_CODE", "pct"),
+				    Typed = Table.TransformColumnTypes(Unpivoted, {{"grp", type text}, {"n", Int64.Type}, {"TRANSACTION_TYPE_CODE", type text}, {"pct", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"grp", "n", "TRANSACTION_TYPE_CODE", "pct"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

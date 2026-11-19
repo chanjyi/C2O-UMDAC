@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "hold: 12 Confirmed · 3 Strong · 18 Supported",
+                    "value": "confirmed, strong or supported findings (12 · 3 · 18)",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#3B3A39"

@@ -62,7 +62,7 @@
                     }
                   },
                   {
-                    "value": "Duplicates come in bursts of 2–5 identical payments (same sender, payee, currency and amount) about 18 min apart; every copy is labelled; an unlabelled original before the burst is found for 9% of bursts (chance rate 9%). Same pattern for B and C senders",
+                    "value": "Duplicates come in bursts of 2–5 identical payments (same sender, payee, currency and amount) about 18 min apart; no evidence of unlabelled originals: an earlier unlabelled match occurs for 9.2% of bursts, the same as the chance rate (9.2%). Same pattern for B and C senders",
                     "textStyle": {
                       "fontSize": "11pt"
                     }
@@ -87,7 +87,7 @@
                     }
                   },
                   {
-                    "value": "Romance: one consumer pays the same consumer several times within a day with rising amounts. CEO: business sender, first-time payee, above-usual amount",
+                    "value": "Romance: same consumer pair, several payments within a day, rising amounts (98.8% vs 50.4% of C2C pairs with 3+ payments). CEO: business sender, first-time payee, above-usual amount",
                     "textStyle": {
                       "fontSize": "11pt"
                     }
@@ -112,7 +112,7 @@
                     }
                   },
                   {
-                    "value": "Account replacement: mechanism not recovered. CUSTOMER_RECALL (not in the appendix): no linked payment. Anomaly rates differ by segment",
+                    "value": "Account replacement: mechanism not recovered. CUSTOMER_RECALL: 314 of 317 have no matching earlier payment (tested criteria). Rates differ by segment",
                     "textStyle": {
                       "fontSize": "11pt"
                     }

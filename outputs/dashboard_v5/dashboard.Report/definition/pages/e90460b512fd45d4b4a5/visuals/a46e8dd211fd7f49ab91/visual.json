@@ -5,7 +5,7 @@
     "x": 970,
     "y": 300,
     "width": 890,
-    "height": 440,
+    "height": 300,
     "z": 2,
     "tabOrder": 2
   },
@@ -124,7 +124,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'B2B: 23% of payments but 73% of USD value'"
+                  "Value": "'B2B: 23% of payments but 73% of USD value (normal payments, 20% sample)'"
                 }
               }
             },
