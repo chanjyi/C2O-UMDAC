@@ -1,0 +1,7 @@
+input,what,source,type
+data/raw/*.csv,Case dataset (10M fictitious payments),Provided by the organisers,Input
+data/processed/*.parquet,"Clean copy + derived columns, 20% sample, anomaly extract",Built from the case dataset (section 1),Derived
+local_ccy (in-memory table),Local currency per BIC country,Inferred: the currency each country's senders use most,Derived
+data/processed/clock_offsets.csv,Clock offset (hours vs UTC) per sender country,Inferred from the weekly activity rhythm (section 1b),Derived
+BIC / IBAN layout,Country = BIC letters 5-6; IBAN = country + check digits + account,"Public format standards (ISO 9362, ISO 13616) used as parsing logic; no data table",Format knowledge
+GDP per capita / income levels,"Not used. If a slide mentions it, it is labelled as outside context with an APA citation, never as a finding",Never loaded or used in a calculation,Not used

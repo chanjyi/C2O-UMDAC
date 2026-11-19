@@ -1,0 +1,9 @@
+side,typ,name_class,n,share
+beneficiary,C,person tokens,6466764,0.9084511375369638
+beneficiary,B,neither,353251,0.12259061963179539
+beneficiary,C,neither,651686,0.0915488624630362
+beneficiary,B,business tokens,2528299,0.8774093803682046
+ordering,B,business tokens,6897519,0.8759158041189709
+ordering,B,neither,977118,0.12408419588102919
+ordering,C,neither,198407,0.0933520532727821
+ordering,C,person tokens,1926956,0.9066479467272179

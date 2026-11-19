@@ -1,0 +1,2 @@
+data,n_payments,sender_local,receiver_local_inclusive,receiver_local_not_sender,share_same_local_currency,share_different_local_currency,receiver_local_when_different,sender_local_when_different,first_bank_local_when_different,first_bank_local
+20% sample (sample_20pct.parquet),2001857,0.8943940551198213,0.18879679657278045,0.04240163008646472,0.15499916077879727,0.8450008392212027,0.05017941911951619,0.8852048688496486,0.9270405599531796,0.9339907895519011

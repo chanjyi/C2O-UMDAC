@@ -1,0 +1,50 @@
+table rt5_gap_by_participants
+	lineageTag: 5b26cf85-a134-ac8c-dd53-23fe8881557a
+
+	column PARTICIPANT_COUNT
+		dataType: int64
+		lineageTag: 625b2db8-619d-fcdd-d26f-f29bca41da99
+		summarizeBy: none
+		sourceColumn: PARTICIPANT_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: 61cda54f-710f-d404-728b-e80cd851b1e2
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column gap_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c4abb3a6-ae20-c0e5-2a22-5630eafa0580
+		summarizeBy: sum
+		sourceColumn: gap_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column predicted_per_link
+		dataType: double
+		formatString: 0.0%
+		lineageTag: da32e6a5-bbce-6f1e-4c3f-8a7687133db6
+		summarizeBy: sum
+		sourceColumn: predicted_per_link
+
+		annotation SummarizationSetBy = Automatic
+
+	partition rt5_gap_by_participants = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "rt5_gap_by_participants.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"PARTICIPANT_COUNT", Int64.Type}, {"n", Int64.Type}, {"gap_rate", type number}, {"predicted_per_link", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"PARTICIPANT_COUNT", "n", "gap_rate", "predicted_per_link"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

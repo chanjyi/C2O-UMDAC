@@ -1,0 +1,59 @@
+table rt6_intermediaries_geometric
+	lineageTag: 3aeace05-4046-9c99-4490-02b9cbe7979c
+
+	column intermediaries
+		dataType: int64
+		lineageTag: d6ba9ef2-ee00-5edb-4658-79ec2a598c60
+		summarizeBy: none
+		sourceColumn: intermediaries
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: a27243d5-c1b1-d845-6772-d0420ff0207f
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 9d67094e-17ec-2c4c-2bd3-877a0ba5eb89
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	column predicted
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 54db6a28-b9c6-f6c8-d45b-c16bd386b087
+		summarizeBy: sum
+		sourceColumn: predicted
+
+		annotation SummarizationSetBy = Automatic
+
+	column ratio_to_previous
+		dataType: double
+		formatString: 0.000
+		lineageTag: e6040263-bd9f-07cd-085f-3dedb67d93bc
+		summarizeBy: sum
+		sourceColumn: ratio_to_previous
+
+		annotation SummarizationSetBy = Automatic
+
+	partition rt6_intermediaries_geometric = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "rt6_intermediaries_geometric.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"intermediaries", Int64.Type}, {"n", Int64.Type}, {"share", type number}, {"predicted", type number}, {"ratio_to_previous", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"intermediaries", "n", "share", "predicted", "ratio_to_previous"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

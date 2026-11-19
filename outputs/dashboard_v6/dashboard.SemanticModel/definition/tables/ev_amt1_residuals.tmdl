@@ -1,0 +1,44 @@
+table ev_amt1_residuals
+	lineageTag: 106bb82e-279f-7eb6-8907-c8fc2bd1925b
+
+	column residual_ln
+		dataType: double
+		formatString: 0.0
+		lineageTag: 132bd1d3-d1c3-fe98-62f7-c6ab6078e8d4
+		summarizeBy: none
+		sourceColumn: residual_ln
+
+		annotation SummarizationSetBy = Automatic
+
+	column curve
+		dataType: string
+		lineageTag: 19295655-ce7a-8ae0-6194-00eefc2a5b2d
+		summarizeBy: none
+		sourceColumn: curve
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 3357da11-01f7-cb2e-ee18-ff7b82f70c9a
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ev_amt1_residuals = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ev_amt1_residuals.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Unpivoted = Table.UnpivotOtherColumns(Promoted, {"residual_ln"}, "curve", "share"),
+				    Named = Table.TransformColumns(Unpivoted, {{"curve", each if _ = "observed" then "Observed residuals" else "Normal curve with the same sd", type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"residual_ln", type number}, {"curve", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"residual_ln", "curve", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

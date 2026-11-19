@@ -1,0 +1,6 @@
+id,statistic_ci,p_value,out_of_sample,invariance,causal_status,practical_significance,holdout_agrees,holdout_rule,code_hash,data_stamp
+R-AMT2,"sender 1.999 [1.980, 2.019], receiver 2.002 [1.994, 2.009] (cluster bootstrap, 209,274 accounts)",,,,,,,,637bb19245a8,1708807329-1794819479
+N1,+0.000 ln units (3x would be +1.099),,,,Rejected,the handout example is illustrative only,,,637bb19245a8,1708807329-1794819479
+N2,raw x0.62; same country + party types x1.00,,,,Rejected,confounding example: country mix creates a fake cross-border effect,,,637bb19245a8,1708807329-1794819479
+N3,-0.004 ln units,,,,Rejected,-,,,637bb19245a8,1708807329-1794819479
+N4,"R² < 0.001 for type, hour and weekday",,,,Rejected,-,,,637bb19245a8,1708807329-1794819479

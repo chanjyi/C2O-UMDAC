@@ -1,0 +1,57 @@
+table fx1_conv_by_hops
+	lineageTag: b1048801-a5f0-7ae2-cb25-0424bae9877f
+
+	column TRANSACTION_TYPE_CODE
+		dataType: string
+		lineageTag: fa2d4597-502e-e994-5201-2745094afde3
+		summarizeBy: none
+		sourceColumn: TRANSACTION_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTICIPANT_COUNT
+		dataType: int64
+		lineageTag: 2966aa58-8bbf-8cb6-a49d-c4dca7cd40de
+		summarizeBy: none
+		sourceColumn: PARTICIPANT_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENCY_CONVERSION_COUNT
+		dataType: int64
+		lineageTag: cb96cbc7-04fe-f8c7-c3d4-569fd3a2bf2b
+		summarizeBy: none
+		sourceColumn: CURRENCY_CONVERSION_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: a9d9e9c9-8888-933e-bf51-35047195f37c
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column med_dur
+		dataType: double
+		formatString: 0.0
+		lineageTag: acc5cb78-fdca-3f63-9a7a-bd19a427252b
+		summarizeBy: sum
+		sourceColumn: med_dur
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fx1_conv_by_hops = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "fx1_conv_by_hops.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"TRANSACTION_TYPE_CODE", type text}, {"PARTICIPANT_COUNT", Int64.Type}, {"CURRENCY_CONVERSION_COUNT", Int64.Type}, {"n", Int64.Type}, {"med_dur", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"TRANSACTION_TYPE_CODE", "PARTICIPANT_COUNT", "CURRENCY_CONVERSION_COUNT", "n", "med_dur"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

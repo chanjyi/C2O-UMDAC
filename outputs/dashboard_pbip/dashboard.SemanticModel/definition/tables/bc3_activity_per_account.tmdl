@@ -1,0 +1,50 @@
+table bc3_activity_per_account
+	lineageTag: f097dd1b-72c7-217f-266f-8b5f3fe96e85
+
+	column sender
+		dataType: string
+		lineageTag: 86a54af9-2d8b-48a4-b323-8ca2076fca95
+		summarizeBy: none
+		sourceColumn: sender
+
+		annotation SummarizationSetBy = Automatic
+
+	column accounts
+		dataType: int64
+		lineageTag: c2238c57-bdad-8e27-c7ca-78e712bd8098
+		summarizeBy: sum
+		sourceColumn: accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column payments
+		dataType: int64
+		lineageTag: 1f3ab407-60a5-0ad7-87c3-6f987d2522e5
+		summarizeBy: sum
+		sourceColumn: payments
+
+		annotation SummarizationSetBy = Automatic
+
+	column per_account
+		dataType: double
+		formatString: 0.0
+		lineageTag: 49b2ad3e-651c-7a7a-9ee6-33c869ca7a19
+		summarizeBy: sum
+		sourceColumn: per_account
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bc3_activity_per_account = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "bc3_activity_per_account.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Named = Table.TransformColumns(Table.RenameColumns(Promoted, {{"t", "sender"}}), {{"sender", each if _ = "B" then "Business sender accounts" else "Consumer sender accounts", type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"sender", type text}, {"accounts", Int64.Type}, {"payments", Int64.Type}, {"per_account", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"sender", "accounts", "payments", "per_account"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,52 @@
+table rt4_type_by_cross_border
+	lineageTag: 47e0e5d3-448b-a050-b017-310c21c9a00f
+
+	column grp
+		dataType: string
+		lineageTag: eefb9dc9-1fec-4b71-6699-6c95040227bd
+		summarizeBy: none
+		sourceColumn: grp
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: ebba45ac-82ff-6a72-741b-056ceb338ef7
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_TYPE_CODE
+		dataType: string
+		lineageTag: ec400fb5-c601-fdb2-422c-65abf6ea7aa6
+		summarizeBy: none
+		sourceColumn: TRANSACTION_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct
+		dataType: double
+		formatString: 0.0
+		lineageTag: 491fc52a-1c13-cb62-68af-121fb248cd41
+		summarizeBy: sum
+		sourceColumn: pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition rt4_type_by_cross_border = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "rt4_type_by_cross_border.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Labelled = Table.TransformColumns(Promoted, {{"grp", each if Text.Lower(_) = "true" then "Cross-border" else if Text.Lower(_) = "false" then "Domestic" else _, type text}}),
+				    NumN = Table.TransformColumnTypes(Labelled, {{"n", Int64.Type}}, "en-US"),
+				    Unpivoted = Table.UnpivotOtherColumns(NumN, {"grp", "n"}, "TRANSACTION_TYPE_CODE", "pct"),
+				    Typed = Table.TransformColumnTypes(Unpivoted, {{"grp", type text}, {"n", Int64.Type}, {"TRANSACTION_TYPE_CODE", type text}, {"pct", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"grp", "n", "TRANSACTION_TYPE_CODE", "pct"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

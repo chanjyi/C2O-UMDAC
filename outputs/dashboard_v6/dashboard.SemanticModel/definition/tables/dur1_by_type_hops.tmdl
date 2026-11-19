@@ -1,0 +1,76 @@
+table dur1_by_type_hops
+	lineageTag: 5cae2ecf-8977-9190-f19e-9920f7169ba6
+
+	column TRANSACTION_TYPE_CODE
+		dataType: string
+		lineageTag: 355db390-e2f6-c6a0-04e2-4c1044f75030
+		summarizeBy: none
+		sourceColumn: TRANSACTION_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTICIPANT_COUNT
+		dataType: int64
+		lineageTag: bdbc7117-f8d4-1ca0-db30-fa2e6ecfd691
+		summarizeBy: none
+		sourceColumn: PARTICIPANT_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: 3d497485-51c5-41ea-c60b-63daa0662a0c
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column med
+		dataType: double
+		formatString: 0.0
+		lineageTag: 035c2c37-4f4c-2ab3-f094-9e7a8806c4e8
+		summarizeBy: sum
+		sourceColumn: med
+
+		annotation SummarizationSetBy = Automatic
+
+	column p10
+		dataType: double
+		formatString: 0.0
+		lineageTag: 8866cf0e-28d8-b3dd-2a3a-2b7383c38cb2
+		summarizeBy: sum
+		sourceColumn: p10
+
+		annotation SummarizationSetBy = Automatic
+
+	column p90
+		dataType: double
+		formatString: 0.0
+		lineageTag: 7051b15b-42ad-cdc2-1dcc-532ec7b02269
+		summarizeBy: sum
+		sourceColumn: p90
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_mean
+		dataType: double
+		formatString: 0.0
+		lineageTag: 6b0e91f8-7a21-ed67-6404-cca20bb19bd7
+		summarizeBy: sum
+		sourceColumn: geo_mean
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dur1_by_type_hops = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "dur1_by_type_hops.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"TRANSACTION_TYPE_CODE", type text}, {"PARTICIPANT_COUNT", Int64.Type}, {"n", Int64.Type}, {"med", type number}, {"p10", type number}, {"p90", type number}, {"geo_mean", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"TRANSACTION_TYPE_CODE", "PARTICIPANT_COUNT", "n", "med", "p10", "p90", "geo_mean"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

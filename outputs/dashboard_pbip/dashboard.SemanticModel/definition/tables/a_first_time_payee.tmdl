@@ -1,0 +1,35 @@
+table a_first_time_payee
+	lineageTag: 2a9e3435-3480-be18-be22-3b85941ad783
+
+	column grp
+		dataType: string
+		lineageTag: 00bfef3c-6128-abf0-9cfb-9c8169cc53f3
+		summarizeBy: none
+		sourceColumn: grp
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_time_payee
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 1d028f79-5035-0a64-6629-1177028220d5
+		summarizeBy: sum
+		sourceColumn: first_time_payee
+
+		annotation SummarizationSetBy = Automatic
+
+	partition a_first_time_payee = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "a_profile_vs_control.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"grp", "first_time_payee"}, MissingField.UseNull),
+				    Kept = Table.SelectRows(Selected, each [grp] <> "NONE (all)"),
+				    Typed = Table.TransformColumnTypes(Kept, {{"grp", type text}, {"first_time_payee", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"grp", "first_time_payee"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

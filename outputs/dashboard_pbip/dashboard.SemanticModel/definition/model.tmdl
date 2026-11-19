@@ -1,0 +1,52 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["TablesFolder", "rt6_intermediaries_geometric", "rt5_gap_by_participants", "dur1_by_type_hops", "dur4_by_anomaly", "dur3_by_local_hour", "dur2_country_speed_direct", "fx2_conversion_prediction", "fx4_rccy2_exceptions", "fx1_conv_by_hops", "rules_02", "rt4_type_by_pair", "rt4_type_by_cross_border", "evidence_matrix", "rule_counts", "ccy1_currency_choice", "ccy1_ordering_vs_first_bank", "ccy2_direct_conversions", "ccy3_conversions_by_hops", "amt_factor_screening_r2", "amt2_business_multiplier", "amt5_value_share_by_pair", "amt3_country_base_amount", "bc1_pair_independence", "bc2_hour_profile", "bc3_activity_per_account", "bc4_anomaly_by_pair", "a_money_at_risk", "a_fatfinger_k_share", "a_detector_performance", "dur5_anomaly_delay_same_routing", "a_first_time_payee", "ac_iban_classes", "d_details_formats", "d_name_class_by_type", "d_noise_line_vs_normal"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table rt6_intermediaries_geometric
+ref table rt5_gap_by_participants
+ref table dur1_by_type_hops
+ref table dur4_by_anomaly
+ref table dur3_by_local_hour
+ref table dur2_country_speed_direct
+ref table fx2_conversion_prediction
+ref table fx4_rccy2_exceptions
+ref table fx1_conv_by_hops
+ref table rules_02
+ref table rt4_type_by_pair
+ref table rt4_type_by_cross_border
+ref table evidence_matrix
+ref table rule_counts
+ref table ccy1_currency_choice
+ref table ccy1_ordering_vs_first_bank
+ref table ccy2_direct_conversions
+ref table ccy3_conversions_by_hops
+ref table amt_factor_screening_r2
+ref table amt2_business_multiplier
+ref table amt5_value_share_by_pair
+ref table amt3_country_base_amount
+ref table bc1_pair_independence
+ref table bc2_hour_profile
+ref table bc3_activity_per_account
+ref table bc4_anomaly_by_pair
+ref table a_money_at_risk
+ref table a_fatfinger_k_share
+ref table a_detector_performance
+ref table dur5_anomaly_delay_same_routing
+ref table a_first_time_payee
+ref table ac_iban_classes
+ref table d_details_formats
+ref table d_name_class_by_type
+ref table d_noise_line_vs_normal
+
+ref cultureInfo en-US
+

@@ -1,0 +1,52 @@
+table a_money_at_risk
+	lineageTag: c724a291-f014-1246-d2cc-3e0ca3ec7713
+
+	column anomaly
+		dataType: string
+		lineageTag: 806488bb-5a8a-e81d-13e5-74a68a649a4e
+		summarizeBy: none
+		sourceColumn: anomaly
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: c586d49c-27bf-461c-58ee-92c39f033f8b
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_of_rows
+		dataType: double
+		formatString: 0.0000%
+		lineageTag: 63da0842-e777-06ee-5c3e-38c046a13ec4
+		summarizeBy: sum
+		sourceColumn: share_of_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_of_usd
+		dataType: double
+		formatString: 0.0000%
+		lineageTag: 401e5ae1-a804-a765-03d3-e4f45daad71c
+		summarizeBy: sum
+		sourceColumn: share_of_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	partition a_money_at_risk = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "a_money_at_risk.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"anomaly", "n", "share_of_rows", "share_of_usd"}, MissingField.UseNull),
+				    Kept = Table.SelectRows(Selected, each [anomaly] <> "NONE"),
+				    Typed = Table.TransformColumnTypes(Kept, {{"anomaly", type text}, {"n", Int64.Type}, {"share_of_rows", type number}, {"share_of_usd", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"anomaly", "n", "share_of_rows", "share_of_usd"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

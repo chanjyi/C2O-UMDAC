@@ -1,0 +1,7 @@
+expression TablesFolder = "C:\cjy\y3s2\UMDAC\outputs\tables\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 94110793-436c-bafc-14be-4a8c2a6d8dd5
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+

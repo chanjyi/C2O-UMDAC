@@ -1,0 +1,167 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "220d5cf70a5a819acfbe",
+  "position": {
+    "x": 1230,
+    "y": 300,
+    "width": 630,
+    "height": 374,
+    "z": 2,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fx4_rccy2_exceptions"
+                    }
+                  },
+                  "Property": "endpoints_match"
+                }
+              },
+              "queryRef": "fx4_rccy2_exceptions.endpoints_match",
+              "nativeQueryRef": "endpoints_match",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fx4_rccy2_exceptions"
+                        }
+                      },
+                      "Property": "acc_rccy2_ordering_beneficiary"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fx4_rccy2_exceptions.acc_rccy2_ordering_beneficiary)",
+              "nativeQueryRef": "R-CCY2 with ordering / beneficiary BIC",
+              "displayName": "R-CCY2 with ordering / beneficiary BIC"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fx4_rccy2_exceptions"
+                        }
+                      },
+                      "Property": "acc_path_banks"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fx4_rccy2_exceptions.acc_path_banks)",
+              "nativeQueryRef": "R-CCY2 with banks on the path",
+              "displayName": "R-CCY2 with banks on the path"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'R-FX3: path banks fix the R-CCY2 exceptions'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

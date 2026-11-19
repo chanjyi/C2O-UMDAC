@@ -1,0 +1,102 @@
+table evidence_matrix
+	lineageTag: 5d0425af-7791-55eb-8b3f-d3107457d06d
+
+	column id
+		dataType: string
+		lineageTag: c2f938db-4f65-bd18-b32c-51d8902c0243
+		summarizeBy: none
+		sourceColumn: id
+		sortByColumn: rule_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column group
+		dataType: string
+		lineageTag: bd1ecf0c-f664-caeb-35dd-c9fc01d1a009
+		summarizeBy: none
+		sourceColumn: group
+		sortByColumn: group_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column rule
+		dataType: string
+		lineageTag: 90f46120-03e2-87b9-db20-6d19d8660016
+		summarizeBy: none
+		sourceColumn: rule
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: string
+		lineageTag: 467e312e-9134-c438-8ef3-885205612073
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_verdict
+		dataType: string
+		lineageTag: 21a8c07a-a268-256c-13cc-f8e55708454b
+		summarizeBy: none
+		sourceColumn: final_verdict
+
+		annotation SummarizationSetBy = Automatic
+
+	column causal_status
+		dataType: string
+		lineageTag: 6e869d22-ac0d-6d32-3bcc-dff642fa5c16
+		summarizeBy: none
+		sourceColumn: causal_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column out_of_sample
+		dataType: string
+		lineageTag: 51ac5c76-ef05-87d9-9a19-9ce3a50bad22
+		summarizeBy: none
+		sourceColumn: out_of_sample
+
+		annotation SummarizationSetBy = Automatic
+
+	column verdict_note
+		dataType: string
+		lineageTag: 0771224d-5452-d8a8-a057-3d2bc8a75dd9
+		summarizeBy: none
+		sourceColumn: verdict_note
+
+		annotation SummarizationSetBy = Automatic
+
+	column rule_order
+		dataType: int64
+		lineageTag: 5649c58d-9e83-1d8e-c70f-9150d1bf249e
+		summarizeBy: none
+		sourceColumn: rule_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_order
+		dataType: int64
+		lineageTag: ad6114fd-e55e-6b56-f29f-a987bea1e185
+		summarizeBy: none
+		sourceColumn: group_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition evidence_matrix = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "evidence_matrix.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"id", "group", "rule", "value", "final_verdict", "causal_status", "out_of_sample", "verdict_note"}, MissingField.UseNull),
+				    Indexed = Table.AddIndexColumn(Selected, "idx", 1, 1, Int64.Type),
+				    Grouped = Table.AddColumn(Indexed, "group_order", each List.PositionOf({"Currency", "Amount", "Business/consumer", "Routing", "Duration", "FX", "Anomalies", "Accounts", "Details"}, [group]), Int64.Type),
+				    Ordered = Table.AddColumn(Grouped, "rule_order", each [group_order] * 1000 + [idx], Int64.Type),
+				    Typed = Table.TransformColumnTypes(Ordered, {{"id", type text}, {"group", type text}, {"rule", type text}, {"value", type text}, {"final_verdict", type text}, {"causal_status", type text}, {"out_of_sample", type text}, {"verdict_note", type text}, {"rule_order", Int64.Type}, {"group_order", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"id", "group", "rule", "value", "final_verdict", "causal_status", "out_of_sample", "verdict_note", "rule_order", "group_order"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

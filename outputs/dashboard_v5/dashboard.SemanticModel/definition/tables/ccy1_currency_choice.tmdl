@@ -1,0 +1,34 @@
+table ccy1_currency_choice
+	lineageTag: 3402351f-e44b-6276-8ca6-a6f81e63fad5
+
+	column cls
+		dataType: string
+		lineageTag: e60b7fcb-7f53-77ad-379f-94a450e87923
+		summarizeBy: none
+		sourceColumn: cls
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 16a86704-5045-96a5-4555-0a2a9afa08fd
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ccy1_currency_choice = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ccy1_currency_choice.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Scaled = Table.TransformColumns(Table.RenameColumns(Promoted, {{"pct", "share"}}), {{"share", each Number.FromText(_, "en-US") / 100, type number}}),
+				    Typed = Table.TransformColumnTypes(Scaled, {{"cls", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"cls", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

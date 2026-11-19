@@ -1,0 +1,5 @@
+copies_per_burst,bursts,copies,median_gap_s
+2,37,74,2992.0
+3,43,129,1374.0
+4,49,196,980.0
+5,56,280,873.5

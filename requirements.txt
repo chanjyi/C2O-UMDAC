@@ -1,0 +1,11 @@
+# Tested on Windows, Anaconda Python 3.13 (pandas 3.x, numpy 2.x)
+duckdb>=1.1
+pandas>=2.0
+numpy>=1.24
+pyarrow>=14        # pandas.read_parquet
+scipy>=1.10
+matplotlib>=3.7
+nbformat>=5.9
+nbconvert>=7.0     # run_notebooks_in_order.bat
+ipykernel>=6.0
+jupyter

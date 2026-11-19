@@ -1,0 +1,44 @@
+table ac_one_to_one
+	lineageTag: 8fccce1e-7fee-7b7a-ea33-f2c9784aa3a6
+
+	column role
+		dataType: string
+		lineageTag: 2eb2c06a-7cc8-709b-1429-eb218e30f93d
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = Automatic
+
+	column multi_bic
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 45a6a881-e43e-fa89-bc10-540044e46cc9
+		summarizeBy: sum
+		sourceColumn: multi_bic
+
+		annotation SummarizationSetBy = Automatic
+
+	column multi_party_type
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 26a032c7-6fde-476b-f697-24a106999904
+		summarizeBy: sum
+		sourceColumn: multi_party_type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ac_one_to_one = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ac_one_to_one.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"role", "multi_bic", "multi_party_type"}, MissingField.UseNull),
+				    Named = Table.TransformColumns(Selected, {{"role", each if _ = "ordering" then "Sender account numbers" else "Receiver account numbers", type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"role", type text}, {"multi_bic", type number}, {"multi_party_type", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"role", "multi_bic", "multi_party_type"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,516 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "a_detector_performance",
+          "nodeLineageTag": "f26b9028-9a35-1195-1907-28bfe7716411",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7996.5229572214321,
+            "y": 74
+          },
+          "nodeIndex": "a_fatfinger_k_share",
+          "nodeLineageTag": "a722c88f-e2d8-6102-bc6a-67bb2f2d7e41",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11804.391032088779,
+            "y": 86
+          },
+          "nodeIndex": "a_first_time_payee",
+          "nodeLineageTag": "2a9e3435-3480-be18-be22-3b85941ad783",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3046.29445989388,
+            "y": 62
+          },
+          "nodeIndex": "a_money_at_risk",
+          "nodeLineageTag": "c724a291-f014-1246-d2cc-3e0ca3ec7713",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12185.177839575514,
+            "y": 86
+          },
+          "nodeIndex": "ac_activity",
+          "nodeLineageTag": "66bac153-3735-7084-7da2-5691e957c87f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12565.964647062248,
+            "y": 86
+          },
+          "nodeIndex": "ac_iban_classes",
+          "nodeLineageTag": "a9f376ee-2cb8-24da-7ecf-fccd79fc0f60",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8377.3097647081668,
+            "y": 74
+          },
+          "nodeIndex": "ac_one_to_one",
+          "nodeLineageTag": "8fccce1e-7fee-7b7a-ea33-f2c9784aa3a6",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12946.751454548983,
+            "y": 86
+          },
+          "nodeIndex": "amt_factor_screening_r2",
+          "nodeLineageTag": "4d360e6c-c55a-212a-34e1-511fd40bf6e1",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3427.0812673806149,
+            "y": 62
+          },
+          "nodeIndex": "amt2_business_multiplier",
+          "nodeLineageTag": "c1cdfe98-8ddd-c1a9-e833-30a826426958",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3807.86807486735,
+            "y": 62
+          },
+          "nodeIndex": "amt3_country_base_amount",
+          "nodeLineageTag": "8b9221d1-b60d-f3f9-d574-0e2e007f96c1",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4188.6548823540852,
+            "y": 62
+          },
+          "nodeIndex": "amt5_value_share_by_pair",
+          "nodeLineageTag": "cd88fb8f-54f2-3670-1887-10c566ba30d6",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4569.44168984082,
+            "y": 62
+          },
+          "nodeIndex": "bc1_pair_independence",
+          "nodeLineageTag": "5ee63568-7306-054b-2653-b80d8cc0f741",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8758.0965721949015,
+            "y": 74
+          },
+          "nodeIndex": "bc2_hour_profile",
+          "nodeLineageTag": "440d0ace-b849-4cd7-4046-118d32e29c14",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4950.2284973275546,
+            "y": 62
+          },
+          "nodeIndex": "bc3_activity_per_account",
+          "nodeLineageTag": "f097dd1b-72c7-217f-266f-8b5f3fe96e85",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9138.8833796816361,
+            "y": 74
+          },
+          "nodeIndex": "bc4_anomaly_by_pair",
+          "nodeLineageTag": "7c068852-60fe-d7b6-3e87-98342abaa81e",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 13327.538262035718,
+            "y": 86
+          },
+          "nodeIndex": "ccy1_currency_choice",
+          "nodeLineageTag": "3402351f-e44b-6276-8ca6-a6f81e63fad5",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 13708.325069522452,
+            "y": 86
+          },
+          "nodeIndex": "ccy1_ordering_vs_first_bank",
+          "nodeLineageTag": "57e20304-712a-bf5d-74a9-10925365508f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9519.67018716837,
+            "y": 74
+          },
+          "nodeIndex": "ccy2_direct_conversions",
+          "nodeLineageTag": "932d5d42-3795-3d88-15bb-844bd6fc9629",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9900.4569946551055,
+            "y": 74
+          },
+          "nodeIndex": "ccy3_conversions_by_hops",
+          "nodeLineageTag": "de1bbf8d-8a16-f768-8fbf-3f76464bc394",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14089.111877009187,
+            "y": 86
+          },
+          "nodeIndex": "d_addr_country",
+          "nodeLineageTag": "25e68910-5b98-c152-bff0-06d10ec82e92",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10281.24380214184,
+            "y": 74
+          },
+          "nodeIndex": "d_details_formats",
+          "nodeLineageTag": "fe7fb158-ad6a-5742-4eff-adb9f91da40f",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10662.030609628575,
+            "y": 74
+          },
+          "nodeIndex": "d_name_class_by_type",
+          "nodeLineageTag": "b5dcef8e-f0c9-7b2b-2dd3-d63d3717e527",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1523.1472299469397,
+            "y": 50
+          },
+          "nodeIndex": "d_noise_line_vs_normal",
+          "nodeLineageTag": "2b3f5f49-b3e4-31e8-6c9d-91728f45e27f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1142.3604224602047,
+            "y": 26
+          },
+          "nodeIndex": "dur1_by_type_hops",
+          "nodeLineageTag": "5cae2ecf-8977-9190-f19e-9920f7169ba6",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11042.81741711531,
+            "y": 74
+          },
+          "nodeIndex": "dur2_country_speed_direct",
+          "nodeLineageTag": "9107d98c-e586-5d64-e017-a70b9cc0b4cb",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5331.0153048142893,
+            "y": 62
+          },
+          "nodeIndex": "dur3_by_local_hour",
+          "nodeLineageTag": "896269d3-7b97-ff57-b49d-5317a9ddce31",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5711.802112301024,
+            "y": 62
+          },
+          "nodeIndex": "dur4_by_anomaly",
+          "nodeLineageTag": "a96e30a4-14c2-1c1a-00ea-82aeed609155",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11423.604224602044,
+            "y": 74
+          },
+          "nodeIndex": "dur5_anomaly_delay_same_routing",
+          "nodeLineageTag": "f50a770d-cc65-44d7-a108-797f1d98548c",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 380.786807486735,
+            "y": 0
+          },
+          "nodeIndex": "evidence_matrix",
+          "nodeLineageTag": "5d0425af-7791-55eb-8b3f-d3107457d06d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1903.9340374336746,
+            "y": 50
+          },
+          "nodeIndex": "fx1_conv_by_hops",
+          "nodeLineageTag": "b1048801-a5f0-7ae2-cb25-0424bae9877f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6092.5889197877586,
+            "y": 62
+          },
+          "nodeIndex": "fx2_conversion_prediction",
+          "nodeLineageTag": "477d2c3a-1cd6-6432-6ba0-6796952cff2e",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6473.3757272744933,
+            "y": 62
+          },
+          "nodeIndex": "fx4_rccy2_exceptions",
+          "nodeLineageTag": "727c29a7-201b-08d6-bbad-837d171a2ca1",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6854.162534761228,
+            "y": 62
+          },
+          "nodeIndex": "rt4_type_by_cross_border",
+          "nodeLineageTag": "47e0e5d3-448b-a050-b017-310c21c9a00f",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7234.9493422479627,
+            "y": 62
+          },
+          "nodeIndex": "rt4_type_by_pair",
+          "nodeLineageTag": "5dc322a0-3824-1e5b-53d4-9cb7df08fcff",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7615.7361497346974,
+            "y": 62
+          },
+          "nodeIndex": "rt5_gap_by_participants",
+          "nodeLineageTag": "5b26cf85-a134-ac8c-dd53-23fe8881557a",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2284.7208449204095,
+            "y": 50
+          },
+          "nodeIndex": "rt6_intermediaries_geometric",
+          "nodeLineageTag": "3aeace05-4046-9c99-4490-02b9cbe7979c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2665.5076524071446,
+            "y": 50
+          },
+          "nodeIndex": "rule_counts",
+          "nodeLineageTag": "960da879-39eb-4497-7e4b-cd804eddb4fe",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 761.57361497346983,
+            "y": 14
+          },
+          "nodeIndex": "rules_02",
+          "nodeLineageTag": "bb56aa37-a482-e082-a657-0e56a5b64ed8",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

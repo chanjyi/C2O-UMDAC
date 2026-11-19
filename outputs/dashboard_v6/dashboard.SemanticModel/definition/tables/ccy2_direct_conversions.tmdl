@@ -1,0 +1,44 @@
+table ccy2_direct_conversions
+	lineageTag: 932d5d42-3795-3d88-15bb-844bd6fc9629
+
+	column grp
+		dataType: string
+		lineageTag: 67afa418-72b1-5bff-da0e-e5d6e93bae1f
+		summarizeBy: none
+		sourceColumn: grp
+
+		annotation SummarizationSetBy = Automatic
+
+	column conversions
+		dataType: string
+		lineageTag: fe779eef-2ec9-da82-4c97-c515676f77a4
+		summarizeBy: none
+		sourceColumn: conversions
+
+		annotation SummarizationSetBy = Automatic
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 43558dd9-eeb0-280a-ea43-d2b331e7cd10
+		summarizeBy: sum
+		sourceColumn: share
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ccy2_direct_conversions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ccy2_direct_conversions.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Unpivoted = Table.UnpivotOtherColumns(Promoted, {"grp"}, "conversions", "pct"),
+				    Scaled = Table.AddColumn(Unpivoted, "share", each Number.FromText([pct], "en-US") / 100, type number),
+				    Named = Table.TransformColumns(Table.RemoveColumns(Scaled, {"pct"}), {{"conversions", each _ & (if _ = "1" then " conversion" else " conversions"), type text}}),
+				    Typed = Table.TransformColumnTypes(Named, {{"grp", type text}, {"conversions", type text}, {"share", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"grp", "conversions", "share"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

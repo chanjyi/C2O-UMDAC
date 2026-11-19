@@ -1,0 +1,52 @@
+table amt5_value_share_by_pair
+	lineageTag: cd88fb8f-54f2-3670-1887-10c566ba30d6
+
+	column pair
+		dataType: string
+		lineageTag: eb21935f-2c95-c6c2-bd1f-c4d760ff6e26
+		summarizeBy: none
+		sourceColumn: pair
+		sortByColumn: pair_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_of_payments
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c7d1ee77-be5e-b2d6-c5cc-e886598ca8a0
+		summarizeBy: sum
+		sourceColumn: share_of_payments
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_of_usd_value
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f46cf71d-de74-3241-16ce-a9a9279cc85a
+		summarizeBy: sum
+		sourceColumn: share_of_usd_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column pair_order
+		dataType: int64
+		lineageTag: edefd73b-7959-6892-ded8-3d65a26bdd17
+		summarizeBy: none
+		sourceColumn: pair_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition amt5_value_share_by_pair = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "amt5_value_share_by_pair.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Ordered = Table.AddColumn(Promoted, "pair_order", each List.PositionOf({"C2C", "C2B", "B2C", "B2B"}, [pair]), Int64.Type),
+				    Typed = Table.TransformColumnTypes(Ordered, {{"pair", type text}, {"share_of_payments", type number}, {"share_of_usd_value", type number}, {"pair_order", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"pair", "share_of_payments", "share_of_usd_value", "pair_order"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

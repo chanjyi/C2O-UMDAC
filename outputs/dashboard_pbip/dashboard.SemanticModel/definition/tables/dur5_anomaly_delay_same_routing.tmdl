@@ -1,0 +1,43 @@
+table dur5_anomaly_delay_same_routing
+	lineageTag: f50a770d-cc65-44d7-a108-797f1d98548c
+
+	column anomaly
+		dataType: string
+		lineageTag: 4a93a943-c128-6c40-cd26-4b0b2e33ed68
+		summarizeBy: none
+		sourceColumn: anomaly
+
+		annotation SummarizationSetBy = Automatic
+
+	column x_vs_normal_same_routing
+		dataType: double
+		formatString: 0.0
+		lineageTag: c818dc1a-9c97-228b-7233-6316531057d5
+		summarizeBy: sum
+		sourceColumn: x_vs_normal_same_routing
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: double
+		formatString: 0
+		lineageTag: 76c55099-e841-87c5-f49b-f514296565dc
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dur5_anomaly_delay_same_routing = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "dur5_anomaly_delay_same_routing.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"anomaly", "x_vs_normal_same_routing", "n"}, MissingField.UseNull),
+				    Typed = Table.TransformColumnTypes(Selected, {{"anomaly", type text}, {"x_vs_normal_same_routing", type number}, {"n", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"anomaly", "x_vs_normal_same_routing", "n"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,13 @@
+TRANSACTION_TYPE_CODE,cross_border,first_bank_same_country,n
+Direct,True,False,284559
+Indirect,True,False,146854
+Covered,True,False,18732
+Direct,False,False,15258
+Direct,True,True,12782
+Indirect,False,False,8095
+Indirect,True,True,6698
+Direct,False,True,2448
+Indirect,False,True,1191
+Covered,False,False,826
+Covered,True,True,718
+Covered,False,True,238

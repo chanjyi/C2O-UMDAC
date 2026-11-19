@@ -1,0 +1,158 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "a_detector_performance.detector": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "a_detector_performance",
+			          "ConceptualProperty": "detector"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Detector": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "a_detector_performance.rule": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "a_detector_performance",
+			          "ConceptualProperty": "rule"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rule": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "evidence_matrix.id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "evidence_matrix",
+			          "ConceptualProperty": "id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "evidence_matrix.group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "evidence_matrix",
+			          "ConceptualProperty": "group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Group": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "evidence_matrix.rule": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "evidence_matrix",
+			          "ConceptualProperty": "rule"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rule (WHEN ... THEN ...)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "evidence_matrix.final_verdict": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "evidence_matrix",
+			          "ConceptualProperty": "final_verdict"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Verdict": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "evidence_matrix.causal_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "evidence_matrix",
+			          "ConceptualProperty": "causal_status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Causal status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

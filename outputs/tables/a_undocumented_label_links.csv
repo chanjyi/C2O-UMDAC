@@ -1,0 +1,3 @@
+anomaly,direction,linked_anomaly,n,median_gap_hours
+CUSTOMER_RECALL,no link,,314,
+CUSTOMER_RECALL,linked payment is earlier,NONE,3,827.8322222222222

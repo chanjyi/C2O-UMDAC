@@ -1,0 +1,6 @@
+causal_status,rules,with_95ci,out_of_sample,invariance,practical,required
+Association,15,0.6666666666666666,0.8,0.7333333333333333,1.0,"statistic_ci, practical_significance"
+Mechanism,14,1.0,1.0,1.0,1.0,"statistic_ci, out_of_sample, invariance, practical_significance"
+Rejected,7,0.14285714285714285,0.0,0.0,0.5714285714285714,statistic_ci
+Structural,7,0.2857142857142857,0.2857142857142857,0.0,0.2857142857142857,statistic_ci
+Unresolved,2,1.0,0.0,0.0,1.0,statistic_ci

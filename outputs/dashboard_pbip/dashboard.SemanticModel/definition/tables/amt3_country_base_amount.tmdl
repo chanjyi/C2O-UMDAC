@@ -1,0 +1,53 @@
+table amt3_country_base_amount
+	lineageTag: 8b9221d1-b60d-f3f9-d574-0e2e007f96c1
+
+	column o_cc
+		dataType: string
+		lineageTag: c99d6718-1554-c6e6-bcde-1bd76789e1e0
+		summarizeBy: none
+		sourceColumn: o_cc
+
+		annotation SummarizationSetBy = Automatic
+
+	column N
+		dataType: int64
+		lineageTag: d9005b26-2f98-04f5-4f60-a0df01747259
+		summarizeBy: sum
+		sourceColumn: N
+
+		annotation SummarizationSetBy = Automatic
+
+	column typical_C2C_usd
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 8987f9a1-7dfd-bfa6-f6f2-de0086cd493d
+		summarizeBy: sum
+		sourceColumn: typical_C2C_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column band
+		dataType: string
+		lineageTag: 5403237c-d9f3-3736-6bd0-d449372c2689
+		summarizeBy: none
+		sourceColumn: band
+
+		annotation SummarizationSetBy = Automatic
+
+	partition amt3_country_base_amount = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "amt3_country_base_amount.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"o_cc", "N", "typical_C2C_usd"}, MissingField.UseNull),
+				    Num = Table.TransformColumnTypes(Selected, {{"typical_C2C_usd", type number}}, "en-US"),
+				    Sorted = Table.Sort(Num, {{"typical_C2C_usd", Order.Descending}}),
+				    Ends = Table.Combine({Table.AddColumn(Table.FirstN(Sorted, 7), "band", each "Highest 7", type text), Table.AddColumn(Table.LastN(Sorted, 7), "band", each "Lowest 7", type text)}),
+				    Typed = Table.TransformColumnTypes(Ends, {{"o_cc", type text}, {"N", Int64.Type}, {"typical_C2C_usd", type number}, {"band", type text}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"o_cc", "N", "typical_C2C_usd", "band"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

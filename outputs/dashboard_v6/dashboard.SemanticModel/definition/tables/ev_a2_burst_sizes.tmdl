@@ -1,0 +1,41 @@
+table ev_a2_burst_sizes
+	lineageTag: ed37a842-e1fc-c748-a749-a1b3e0862350
+
+	column copies_per_burst
+		dataType: int64
+		lineageTag: c76743d0-dfdc-3fb5-f108-de0aae014c7a
+		summarizeBy: none
+		sourceColumn: copies_per_burst
+
+		annotation SummarizationSetBy = Automatic
+
+	column bursts
+		dataType: int64
+		lineageTag: b43b841d-6187-16fb-9617-4f0c6ea83b7d
+		summarizeBy: sum
+		sourceColumn: bursts
+
+		annotation SummarizationSetBy = Automatic
+
+	column copies
+		dataType: int64
+		lineageTag: 38647890-fe5b-5605-72a2-e2da46d6f35e
+		summarizeBy: sum
+		sourceColumn: copies
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ev_a2_burst_sizes = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "ev_a2_burst_sizes.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"copies_per_burst", "bursts", "copies"}, MissingField.UseNull),
+				    Typed = Table.TransformColumnTypes(Selected, {{"copies_per_burst", Int64.Type}, {"bursts", Int64.Type}, {"copies", Int64.Type}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"copies_per_burst", "bursts", "copies"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

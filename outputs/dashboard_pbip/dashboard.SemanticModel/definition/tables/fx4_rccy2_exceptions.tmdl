@@ -1,0 +1,51 @@
+table fx4_rccy2_exceptions
+	lineageTag: 727c29a7-201b-08d6-bbad-837d171a2ca1
+
+	column endpoints_match
+		dataType: string
+		lineageTag: 6186080b-3aa7-3003-fab8-3eec1d582cce
+		summarizeBy: none
+		sourceColumn: endpoints_match
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		lineageTag: 05ca9466-3c08-6357-9995-d5fd5bd7ff1f
+		summarizeBy: sum
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column acc_rccy2_ordering_beneficiary
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c10b198b-e091-1cc5-cb54-3ec56253f18b
+		summarizeBy: sum
+		sourceColumn: acc_rccy2_ordering_beneficiary
+
+		annotation SummarizationSetBy = Automatic
+
+	column acc_path_banks
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 16d8e143-7e83-0697-e89a-a46ac6856638
+		summarizeBy: sum
+		sourceColumn: acc_path_banks
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fx4_rccy2_exceptions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(TablesFolder & "fx4_rccy2_exceptions.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Labelled = Table.TransformColumns(Promoted, {{"endpoints_match", each if Text.Lower(_) = "true" then "Path ends at the ordering / beneficiary BIC" else "Path starts or ends at another bank", type text}}),
+				    Typed = Table.TransformColumnTypes(Labelled, {{"endpoints_match", type text}, {"n", Int64.Type}, {"acc_rccy2_ordering_beneficiary", type number}, {"acc_path_banks", type number}}, "en-US"),
+				    Final = Table.SelectColumns(Typed, {"endpoints_match", "n", "acc_rccy2_ordering_beneficiary", "acc_path_banks"})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+
